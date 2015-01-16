@@ -1,0 +1,6 @@
+*~
+*.aps
+*.user
+ipch/
+*.sdf
+*.sln
