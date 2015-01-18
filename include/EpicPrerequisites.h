@@ -1,7 +1,9 @@
 #ifndef EPIC_INCLUDE_EPICPREREQUISITES_H
 #define EPIC_INCLUDE_EPICPREREQUISITES_H
 
+#include <cassert>
 #include <string>
+#include <vector>
 
 namespace epic {
 	#if defined(EPIC_NONCLIENT_BUILD)
@@ -25,6 +27,7 @@ namespace epic {
 	typedef std::string String;
 
 	// forward declarations
+	class Exception;
 	class RenderSystem;
 	class Root;
 
