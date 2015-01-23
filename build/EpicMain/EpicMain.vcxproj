@@ -57,11 +57,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-<<<<<<< HEAD
     <IncludePath>$(IncludePath)</IncludePath>
-=======
     <IncludePath>$(SolutiioinDir)..\..;$(IncludePath)</IncludePath>
->>>>>>> xmm
     <TargetName>$(ProjectName)_d</TargetName>
     <ExecutablePath>$(ExecutablePath)</ExecutablePath>
     <LibraryPath>$(LibraryPath)</LibraryPath>
