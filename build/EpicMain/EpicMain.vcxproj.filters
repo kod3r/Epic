@@ -31,6 +31,12 @@
     <ClInclude Include="..\..\include\EpicException.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\EpicMouse.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EpicRenderWindow.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp">
@@ -43,6 +49,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\EpicException.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicMouse.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicRenderWindow.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

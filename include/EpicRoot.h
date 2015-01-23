@@ -9,8 +9,14 @@ namespace epic {
 	public:
 		Root();
 		~Root();
+		
+		void StartRendering(void);
+		
 		static Root& GetInstance(void);
 		static Root* GetInstancePtr(void);
+	private:
+		void InitSystem(void);
+		RenderWindow* render_window_;
 	}; // Root
 } // epic
 
