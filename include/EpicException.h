@@ -13,7 +13,7 @@
 namespace epic {
 	class Exception : public std::exception{
 	public:
-		Exception(const char* message);
+		Exception(const char* message) {}
 		~Exception() throw() {}
 		virtual const char* what() const throw() {
 			return message_;

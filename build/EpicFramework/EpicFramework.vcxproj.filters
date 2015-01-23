@@ -23,5 +23,8 @@
     <ClCompile Include="EpicFramework.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
