@@ -2,7 +2,7 @@
 #define EPIC_INCLUDE_EPICRENDERSYSTEM_H
 
 #include "include/EpicPrerequisites.h"
-#include "include//EpicSingleton.h"
+#include "include/EpicSingleton.h"
 
 namespace epic {
 	class EPIC_EXPORT RenderSystem : public Singleton<RenderSystem> {

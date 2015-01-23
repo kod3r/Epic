@@ -20,4 +20,14 @@
       <UniqueIdentifier>{4a45e827-470c-4c61-ac9d-b9fb87bd4938}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\EpicGLRenderSystem\EpicGLRenderSystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\EpicGLRenderSystem\EpicGLRenderSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
