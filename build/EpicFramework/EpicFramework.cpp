@@ -1,10 +1,13 @@
 #include "EpicFramework.h"
+#include "include/EpicRoot.h"
 
-template<> EpicFramework* epic::Singleton<EpicFramework>::singleton_ = 0;
-EpicFramework& EpicFramework::GetInstance(void) {
-	assert(singleton_);
-	return *singleton_;
+EpicFramework::EpicFramework() {
+	root_ = new epic::Root();
 }
-EpicFramework* EpicFramework::GetInstancePtr(void) {
-	return singleton_;
+
+EpicFramework::~EpicFramework() {
+}
+
+void EpicFramework::StartRenderLoop() {
+	root_->StartRendering();
 }

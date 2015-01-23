@@ -3,8 +3,9 @@
 
 #include "include/EpicPrerequisites.h"
 #include <Windows.h>
-#include <dinput.h>
+
 #define DIRECTINPUT_VERSION 0x0800
+#include <dinput.h>
 
 namespace epic {
 	class EPIC_EXPORT InputManager {
@@ -14,9 +15,13 @@ namespace epic {
 		HWND hwnd() const { return hwnd_; }
 	protected:
 		void Initialize(HWND hwnd);
+		void InitMouse();
 	private:
 		HWND hwnd_; // window handle
 		IDirectInput8* directinput_;
+		IDirectInputDevice8* direct_mouse_;
+		Mouse* mouse_;
+		DWORD mouse_cooperative_level_;
 	}; // InputManager
 } // epic
 

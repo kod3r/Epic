@@ -4,7 +4,7 @@
 #include <cassert>
 #include <string>
 #include <vector>
-
+#pragma warning(disable:4251)
 namespace epic {
 	#if defined(EPIC_NONCLIENT_BUILD)
 	#	define EPIC_EXPORT __declspec(dllexport)
@@ -28,7 +28,11 @@ namespace epic {
 
 	// forward declarations
 	class Exception;
+	class InputManager;
+	class Mouse;
+	class MouseListener;
 	class RenderSystem;
+	class RenderWindow;
 	class Root;
 
 } // epic

@@ -13,15 +13,19 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\EpicException.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
+    <ClInclude Include="..\..\include\EpicMouse.h" />
     <ClInclude Include="..\..\include\EpicPrerequisites.h" />
     <ClInclude Include="..\..\include\EpicRenderSystem.h" />
+    <ClInclude Include="..\..\include\EpicRenderWindow.h" />
     <ClInclude Include="..\..\include\EpicRoot.h" />
     <ClInclude Include="..\..\include\EpicSingleton.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\EpicException.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
+    <ClCompile Include="..\..\src\EpicMouse.cpp" />
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp" />
+    <ClCompile Include="..\..\src\EpicRenderWindow.cpp" />
     <ClCompile Include="..\..\src\EpicRoot.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -71,6 +75,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dinput8.lib;glew32.lib;glew32d.lib;d3d11.lib;d3dx11d.lib;D3DCompiler.lib;dxerr.lib;dxgi.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
