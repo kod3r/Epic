@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\EpicException.h" />
+    <ClInclude Include="..\..\include\EpicGLRenderSystem.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
     <ClInclude Include="..\..\include\EpicPrerequisites.h" />
@@ -22,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\EpicException.cpp" />
+    <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
     <ClCompile Include="..\..\src\EpicMouse.cpp" />
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp" />
