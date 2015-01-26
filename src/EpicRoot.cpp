@@ -2,6 +2,8 @@
 
 #include <Windows.h>
 #include "include/EpicRenderWindow.h"
+#include "include/EpicRenderSystem.h"
+#include "include/EpicGLRenderSystem.h"
 
 namespace epic {
 	Root::Root():
@@ -10,6 +12,13 @@ namespace epic {
 		InitSystem();
 	}
 	Root::~Root(){
+	}
+	Root::Root(RenderSystemType type) {
+		if (type == RenderSystemType::D3D9Render) {
+
+		}else if (type == RenderSystemType::OpenGLRender) {
+			//render_system_ = new GLRenderSystem();
+		}
 	}
 	void Root::InitSystem(void) {
 		render_window_ = new RenderWindow(GetModuleHandle(NULL));

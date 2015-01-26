@@ -4,8 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicMain", "..\EpicMain\EpicMain.vcxproj", "{0478FE41-F1A0-48DF-900E-4E1551ACDA0E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicFramework", "..\EpicFramework\EpicFramework.vcxproj", "{2939B73F-60F3-405B-B4DC-7E3DB561C9BD}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicGLRenderSystem", "..\EpicGLRenderSystem\EpicGLRenderSystem.vcxproj", "{FAAF2C83-3479-4B12-976B-E4EA39553898}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0478FE41-F1A0-48DF-900E-4E1551ACDA0E} = {0478FE41-F1A0-48DF-900E-4E1551ACDA0E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +22,6 @@ Global
 		{2939B73F-60F3-405B-B4DC-7E3DB561C9BD}.Debug|Win32.Build.0 = Debug|Win32
 		{2939B73F-60F3-405B-B4DC-7E3DB561C9BD}.Release|Win32.ActiveCfg = Release|Win32
 		{2939B73F-60F3-405B-B4DC-7E3DB561C9BD}.Release|Win32.Build.0 = Release|Win32
-		{FAAF2C83-3479-4B12-976B-E4EA39553898}.Debug|Win32.ActiveCfg = Debug|Win32
-		{FAAF2C83-3479-4B12-976B-E4EA39553898}.Debug|Win32.Build.0 = Debug|Win32
-		{FAAF2C83-3479-4B12-976B-E4EA39553898}.Release|Win32.ActiveCfg = Release|Win32
-		{FAAF2C83-3479-4B12-976B-E4EA39553898}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
