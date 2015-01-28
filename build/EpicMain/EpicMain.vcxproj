@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\EpicD3D9RenderSystem.h" />
     <ClInclude Include="..\..\include\EpicException.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
@@ -21,6 +22,7 @@
     <ClInclude Include="..\..\include\EpicSingleton.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\EpicD3D9RenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicException.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
     <ClCompile Include="..\..\src\EpicMouse.cpp" />
@@ -72,7 +74,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EPIC_NONCLIENT_BUILD;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>EPIC_NONCLIENT_BUILD;WIN32;_DEBUG;_WINDOWS;_USRDLL;EPIC_NONCLIENT_BUILD;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(DXSDK_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -90,7 +92,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>EPIC_NONCLIENT_BUILD;WIN32;NDEBUG;_WINDOWS;_USRDLL;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)..\..\;$(DXSDK_DIR)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
