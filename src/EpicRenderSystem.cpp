@@ -2,6 +2,7 @@
 
 namespace epic {
 	template<> RenderSystem* Singleton<RenderSystem>::singleton_ = 0;
+
 	RenderSystem& RenderSystem::GetInstance(void) {
 		assert(singleton_);
 		return *singleton_;
@@ -9,4 +10,6 @@ namespace epic {
 	RenderSystem* RenderSystem::GetInstancePtr(void) {
 		return singleton_;
 	}
+
+	RenderSystem::~RenderSystem(){}
 } // epic

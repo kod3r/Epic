@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicMain", "..\EpicMain\EpicMain.vcxproj", "{0478FE41-F1A0-48DF-900E-4E1551ACDA0E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpicFramework", "..\EpicFramework\EpicFramework.vcxproj", "{2939B73F-60F3-405B-B4DC-7E3DB561C9BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0478FE41-F1A0-48DF-900E-4E1551ACDA0E} = {0478FE41-F1A0-48DF-900E-4E1551ACDA0E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
