@@ -12,6 +12,8 @@ namespace epic {
 						  bool is_fullscreen = false,
 						  uint32 width = 800, 
 						  uint32 height = 600);  
+		// switch display mode: fullscreen/window
+		void SwitchDisplayMode(bool is_fullscreen);
 		static LRESULT CALLBACK
 			MessageProcess(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 		HWND hwnd() const { return hwnd_; }

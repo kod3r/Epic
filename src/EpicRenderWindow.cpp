@@ -13,6 +13,41 @@ namespace epic {
 
 	RenderWindow::~RenderWindow() {
 	}
+	void RenderWindow::SwitchDisplayMode(bool is_fullscreen) {
+		//// windowed to full
+		//if (enable) {
+		//	if (!m_d3dpp.Windowed) {
+		//		return ;
+		//	}
+		//	int width = GetSystemMetrics(SM_CXSCREEN);
+		//	int height = GetSystemMetrics(SM_CYSCREEN);
+		//	m_d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;
+		//	m_d3dpp.BackBufferWidth = width;
+		//	m_d3dpp.BackBufferHeight = height;
+		//	m_d3dpp.Windowed = false;
+
+		//	SetWindowLongPtr(m_hwnd, GWL_STYLE, WS_POPUP);
+		//	SetWindowPos(m_hwnd, HWND_TOP, 0, 0, width, height, SWP_NOZORDER | SWP_SHOWWINDOW);
+		//}
+		//// full to windowed
+		//else {
+		//	if (m_d3dpp.Windowed) {
+		//		return;
+		//	}
+		//	RECT R = {0, 0, 800, 600};
+		//	AdjustWindowRect(&R, WS_OVERLAPPEDWINDOW, false);
+		//	m_d3dpp.BackBufferFormat = D3DFMT_UNKNOWN;
+		//	m_d3dpp.BackBufferWidth = R.right;
+		//	m_d3dpp.BackBufferHeight = R.bottom;
+		//	m_d3dpp.Windowed = true;
+
+		//	SetWindowLongPtr(m_hwnd, GWL_STYLE, WS_OVERLAPPEDWINDOW);
+		//	SetWindowPos(m_hwnd, HWND_TOP, 100, 100, R.right, R.bottom, SWP_NOZORDER | SWP_SHOWWINDOW);
+		//}
+		//onLostDevice();
+		//HR( g_pDevice9->Reset(&m_d3dpp) );
+		//onResetDevice();
+	}
 
 	void RenderWindow::CreateRenderWindow(
 		const String& title, 
