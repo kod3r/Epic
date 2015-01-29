@@ -4,7 +4,11 @@
 #include <cassert>
 #include <string>
 #include <vector>
-#include "glm/vec3.hpp"
+
+#ifndef GLM_FORCE_RADIANS
+#define GLM_FORCE_RADIANS
+#endif
+#include "glm/glm.hpp"
 
 #pragma warning(disable:4251)
 namespace epic {
@@ -28,15 +32,24 @@ namespace epic {
 	
 	typedef std::string String;
 
+	typedef glm::vec2 Vector2;
 	typedef glm::vec3 Vector3;
+	typedef glm::vec4 Vector4;
+	typedef glm::mat3 Matrix3;
+	typedef glm::mat4 Matrix4;
+	typedef glm::quat Quaternion;
 	// forward declarations
+	class D3D9RenderSystem;
 	class Exception;
+	class GLRenderSystem;
 	class InputManager;
 	class Mouse;
 	class MouseListener;
+	class Node;
 	class RenderSystem;
 	class RenderWindow;
 	class Root;
+	class SceneManager;
 
 } // epic
 

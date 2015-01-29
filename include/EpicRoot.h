@@ -19,6 +19,7 @@ namespace epic {
 		void InitSystem(void);
 		RenderWindow* render_window_;
 		RenderSystem* render_system_;
+		SceneManager* scene_manager_;
 	}; // Root
 } // epic
 
