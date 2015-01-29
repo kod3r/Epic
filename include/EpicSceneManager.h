@@ -8,10 +8,15 @@ namespace epic {
 	class EPIC_EXPORT SceneManager {
 	public:
 		SceneManager();
-		~SceneManager();
+		virtual ~SceneManager();
+		virtual void UpdateScene();
+		virtual void DrawScene();
+
+		Node* root_node() const;
 	private:
-		Vector3 position_;
-		Vector3 scale_;
+		void InitSceneManager();
+
+		Node* root_node_;
 	}; // SceneManager
 } // epic
 
