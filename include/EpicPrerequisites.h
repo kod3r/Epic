@@ -4,6 +4,8 @@
 #include <cassert>
 #include <string>
 #include <vector>
+#include "glm/vec3.hpp"
+
 #pragma warning(disable:4251)
 namespace epic {
 	#if defined(EPIC_NONCLIENT_BUILD)
@@ -26,6 +28,7 @@ namespace epic {
 	
 	typedef std::string String;
 
+	typedef glm::vec3 Vector3;
 	// forward declarations
 	class Exception;
 	class InputManager;
