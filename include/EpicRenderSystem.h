@@ -5,7 +5,7 @@
 #include "include/EpicSingleton.h"
 
 namespace epic {
-	enum RenderSystemType{D3D9Render = 0, OpenGLRender};
+	enum RenderSystemType{RENDERSYSTEMTYPE_D3D9 = 0, RENDERSYSTEMTYPE_OPENGL};
 	class EPIC_EXPORT RenderSystem : public Singleton<RenderSystem> {
 	public:
 		//RenderSystem();

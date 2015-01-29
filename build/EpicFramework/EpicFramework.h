@@ -2,10 +2,11 @@
 #define EPIC_BUILD_EPICFRAMEWORK_EPICFRAMEWORK_H
 
 #include "include/EpicPrerequisites.h"
+#include "include/EpicRenderSystem.h"
 
 class EpicFramework{
 public:
-	EpicFramework();
+	EpicFramework(epic::RenderSystemType render_system_type);
 	~EpicFramework();
 	void StartRenderLoop();
 private:

@@ -1,8 +1,8 @@
 #include "EpicFramework.h"
 #include "include/EpicRoot.h"
 
-EpicFramework::EpicFramework() {
-	root_ = new epic::Root();
+EpicFramework::EpicFramework(epic::RenderSystemType render_system_type) {
+	root_ = new epic::Root(render_system_type);
 }
 
 EpicFramework::~EpicFramework() {
