@@ -37,7 +37,16 @@
     <ClInclude Include="..\..\include\EpicRenderWindow.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\EpicD3D9RenderSystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\EpicGLRenderSystem.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EpicSceneManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EpicNode.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
@@ -60,7 +69,16 @@
     <ClCompile Include="..\..\src\EpicRenderWindow.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\EpicD3D9RenderSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicSceneManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

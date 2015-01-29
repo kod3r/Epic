@@ -5,8 +5,7 @@
 #include <GL/glew.h>
 
 namespace epic {
-	class GLRenderSystem : RenderSystem 
-	{
+	class EPIC_EXPORT GLRenderSystem : public RenderSystem {
 	public:
 		//GLRenderSystem();
 		virtual ~GLRenderSystem();

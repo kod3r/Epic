@@ -8,12 +8,11 @@
 namespace epic {
 	class EPIC_EXPORT Root : public Singleton<Root>{
 	public:
-		Root();
-		Root(RenderSystemType type);
+		Root(RenderSystemType type, const char* title = "miaomi~");
 		~Root();
 		
 		void StartRendering(void);
-		
+		void RenderOneFrame(void);
 		static Root& GetInstance(void);
 		static Root* GetInstancePtr(void);
 	private:

@@ -4,34 +4,48 @@
 #include "include/EpicRenderWindow.h"
 #include "include/EpicRenderSystem.h"
 #include "include/EpicGLRenderSystem.h"
+#include "include/EpicD3D9RenderSystem.h"
 
 namespace epic {
-	Root::Root():
-	render_window_(NULL)
-	{
-		InitSystem();
-	}
+	//Root::Root():
+	//render_window_(NULL)
+	//{
+	//	InitSystem();
+	//}
 	Root::~Root(){
+		if (render_window_) {
+			delete render_window_;
+			render_window_ = 0;
+		}
+		if (render_system_) {
+			delete render_system_;
+			render_system_ = 0;
+		}
 	}
-	Root::Root(RenderSystemType type) {
-		if (type == RenderSystemType::D3D9Render) {
+	Root::Root(RenderSystemType type, const char* title) {
+		// 1. create render window
+		render_window_ = new RenderWindow(GetModuleHandle(NULL));
+		render_window_->CreateRenderWindow(title);
 
-		}else if (type == RenderSystemType::OpenGLRender) {
+		// 2. init render system
+		if (type == RenderSystemType::RENDERSYSTEMTYPE_D3D9) {
+			render_system_ = new D3D9RenderSystem();
+		}else if (type == RenderSystemType::RENDERSYSTEMTYPE_OPENGL) {
 			//render_system_ = new GLRenderSystem();
 		}
 	}
 	void Root::InitSystem(void) {
-		render_window_ = new RenderWindow(GetModuleHandle(NULL));
-		render_window_->CreateRenderWindow("Miaomi~");
+		
 	}
 	void Root::StartRendering(void) {
 		MSG msg;
 		msg.message = WM_NULL;		
 		while ( msg.message != WM_QUIT ) {
-			if ( PeekMessage(&msg, 0, 0, 0, PM_REMOVE) ) {
+			while ( PeekMessage(&msg, 0, 0, 0, PM_REMOVE) ) {
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
-			}else {
+			}
+			{
 			//	GameLogic();
 			//	OnRendering();
 			}
