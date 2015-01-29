@@ -17,6 +17,7 @@ namespace epic {
 		static LRESULT CALLBACK
 			MessageProcess(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 		HWND hwnd() const { return hwnd_; }
+		HINSTANCE hinstance() const {return hinstance_; }
 	private:
 		HINSTANCE hinstance_;
 		HWND hwnd_;

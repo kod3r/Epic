@@ -31,13 +31,14 @@ namespace epic {
 		// 1. create render window
 		render_window_ = new RenderWindow(GetModuleHandle(NULL));
 		render_window_->CreateRenderWindow(title);
-
-		// 2. init render system
+		//2. init render system
 		if (type == RENDERSYSTEMTYPE_D3D9) {
 			render_system_ = new D3D9RenderSystem();
+
 		}else if (type == RENDERSYSTEMTYPE_OPENGL) {
-			//render_system_ = new GLRenderSystem();
+			render_system_ = new GLRenderSystem(render_window_);
 		}
+		render_system_->InitRender();
 		// 3. init scene manager
 		scene_manager_ = new SceneManager();
 	}
