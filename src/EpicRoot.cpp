@@ -5,6 +5,7 @@
 #include "include/EpicRenderSystem.h"
 #include "include/EpicGLRenderSystem.h"
 #include "include/EpicD3D9RenderSystem.h"
+#include "include/EpicSceneManager.h"
 
 namespace epic {
 	//Root::Root():
@@ -21,12 +22,15 @@ namespace epic {
 			delete render_system_;
 			render_system_ = 0;
 		}
+		if (scene_manager_) {
+			delete scene_manager_;
+			scene_manager_ = 0;
+		}
 	}
 	Root::Root(RenderSystemType type, const char* title) {
 		// 1. create render window
 		render_window_ = new RenderWindow(GetModuleHandle(NULL));
 		render_window_->CreateRenderWindow(title);
-
 		//2. init render system
 		if (type == RENDERSYSTEMTYPE_D3D9) {
 			render_system_ = new D3D9RenderSystem();
@@ -34,12 +38,9 @@ namespace epic {
 		}else if (type == RENDERSYSTEMTYPE_OPENGL) {
 			render_system_ = new GLRenderSystem(render_window_);
 		}
-		//render_system_->InitRender();
-		if (!(render_system_->InitRender()))
-		{
-			MessageBox(NULL,"不能创建渲染器","错误",MB_OK|MB_ICONEXCLAMATION);
-		}
-	//	render_system_->set_render_window(render_window_);
+		render_system_->InitRender();
+		// 3. init scene manager
+		scene_manager_ = new SceneManager();
 	}
 	void Root::InitSystem(void) {
 		
@@ -55,6 +56,7 @@ namespace epic {
 			{
 			//	GameLogic();
 			//	OnRendering();
+				scene_manager_->UpdateScene();
 			}
 		}
 	}
