@@ -3,12 +3,25 @@
 
 #include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
+#include "include/EpicNode.h"
+
+class RootNode : public epic::Node {
+public:
+	RootNode(){}
+	~RootNode(){}
+//	virtual void Update(){}
+	virtual void OnUpdate();
+	
+};
 
 class EpicFramework{
 public:
 	EpicFramework(epic::RenderSystemType render_system_type);
 	~EpicFramework();
+	// 开始渲染前的初始化
+	virtual void InitSystem();
 	void StartRenderLoop();
+
 private:
 	epic::Root* root_;
 }; // EpicFramework

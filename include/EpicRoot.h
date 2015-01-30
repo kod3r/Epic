@@ -13,6 +13,16 @@ namespace epic {
 		
 		void StartRendering(void);
 		void RenderOneFrame(void);
+		RenderWindow* render_window() const {
+			return render_window_;
+		}
+		RenderSystem* render_system() const {
+			return render_system_;
+		}
+		SceneManager* scene_manager() const {
+			return scene_manager_;
+		}
+
 		static Root& GetInstance(void);
 		static Root* GetInstancePtr(void);
 	private:
