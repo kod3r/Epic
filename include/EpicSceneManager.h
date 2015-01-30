@@ -13,6 +13,7 @@ namespace epic {
 		virtual void DrawScene();
 
 		Node* root_node() const;
+		void set_root_node(Node* root_node);
 	private:
 		void InitSceneManager();
 
