@@ -11,6 +11,8 @@ namespace epic {
 	depth_bits_(32)
 	{	
 		render_window_ = rwnd;
+		depth_clear_float_ = 1.0f;
+		clear_color_ = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	RenderSystem& RenderSystem::GetInstance(void) {
@@ -24,6 +26,11 @@ namespace epic {
 	bool RenderSystem::InitRender(void)
 	{
 		return true;
+	}
+
+	void RenderSystem::set_opengl_version(const int major,const int minor)
+	{
+		assert(current_render_type_ == RENDERSYSTEMTYPE_OPENGL);
 	}
 
 	RenderSystemType RenderSystem::current_render_type()
@@ -85,5 +92,15 @@ namespace epic {
 	bool RenderSystem::Reset()
 	{
 		return true;
+	}
+
+	void RenderSystem::set_clear_color(const float r,const float g,const float b,const float alpha)
+	{
+		clear_color_ = glm::vec4(r, g, b, alpha);
+	}
+
+	void RenderSystem::set_depth_clear_float(const float depth)
+	{
+		depth_clear_float_ = depth;
 	}
 } // epic

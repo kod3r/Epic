@@ -64,25 +64,44 @@ namespace epic {
 		WNDCLASS wc;
 		char szAppName[] = "EpicEngine";
 
-		wc.style = CS_HREDRAW | CS_VREDRAW; 
+		//wc.style = CS_HREDRAW | CS_VREDRAW; 
+		wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
 		wc.lpfnWndProc = MessageProcess;
 		wc.cbClsExtra = 0;
 		wc.cbWndExtra = 0;
 		wc.hInstance = hinstance_;
 		wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 		wc.hCursor = LoadCursor(NULL, IDC_ARROW);
-		wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		//wc.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+		wc.hbrBackground = NULL;	
 		wc.lpszMenuName = NULL;
 		wc.lpszClassName = szAppName;
 		if ( !RegisterClass(&wc) ) {
 			throw(Exception("CreateRenderWindow() -> RegisterClass() failed!"));
 		}
 		RECT R = {0, 0, width_, height_};
-		AdjustWindowRect(&R, WS_OVERLAPPEDWINDOW, false);
-		hwnd_ = CreateWindow(
+		//AdjustWindowRect(&R, WS_OVERLAPPEDWINDOW, false);
+		AdjustWindowRectEx(&R, WS_OVERLAPPEDWINDOW, false, WS_EX_APPWINDOW | WS_EX_WINDOWEDGE);
+		//hwnd_ = CreateWindow(
+		//	szAppName,
+		//	title_.c_str(),
+		//	WS_OVERLAPPEDWINDOW|
+		//	WS_CLIPCHILDREN|
+		//	WS_CLIPSIBLINGS,
+		//	0, 0,
+		//	R.right, R.bottom,
+		//	NULL,
+		//	NULL,
+		//	hinstance_,
+		//	NULL);
+
+		hwnd_ = CreateWindowEx(
+			WS_EX_APPWINDOW | WS_EX_WINDOWEDGE,
 			szAppName,
 			title_.c_str(),
-			WS_OVERLAPPEDWINDOW,
+			WS_OVERLAPPEDWINDOW|
+			WS_CLIPCHILDREN|
+			WS_CLIPSIBLINGS,
 			0, 0,
 			R.right, R.bottom,
 			NULL,
@@ -94,8 +113,8 @@ namespace epic {
 			throw(Exception("CreateRenderWindow() -> CreateWindow() failed!"));
 		}
 
-		ShowWindow(hwnd_, SW_SHOW);
-		UpdateWindow(hwnd_);		
+	//	ShowWindow(hwnd_, SW_SHOW);
+	//	UpdateWindow(hwnd_);		
 	}
 
 	LRESULT CALLBACK
@@ -119,5 +138,4 @@ namespace epic {
 		}
 		return DefWindowProc(hWnd, msg, wParam, lParam);
 	}
-
 } // epic

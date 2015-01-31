@@ -3,10 +3,17 @@
 #include "include/EpicSceneManager.h"
 #include "include/EpicNode.h"
 
+static int cc = 0;
 void RootNode::OnUpdate() {
-	//epic::Root::GetInstancePtr()->render_system()->ClearColorBuffer();
+	epic::Root::GetInstancePtr()->render_system()->set_clear_color((float)cc/1000.0f, 0.0f, 0.0f, 1.0f);
+	epic::Root::GetInstancePtr()->render_system()->ClearColorBuffer();
+	epic::Root::GetInstancePtr()->render_system()->SwapRenderBuffers();
+	cc ++;
+	if (cc>1000)
+	{
+		cc = 0;
+	}
 }
-
 
 EpicFramework::EpicFramework(epic::RenderSystemType render_system_type) {
 	root_ = new epic::Root(render_system_type);

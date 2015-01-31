@@ -19,7 +19,8 @@ namespace epic {
 		if (need_update_) {
 			OnUpdate();
 			UpdateMatrix();		
-			need_update_ = false;
+			//need_update_ = false;
+			need_update_ = true;
 		}
 		std::vector<Node*>::iterator it = children_.begin();
 		while (it != children_.end()) {
