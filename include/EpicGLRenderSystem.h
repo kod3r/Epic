@@ -14,10 +14,19 @@ namespace epic {
 
 		static GLRenderSystem& GetInstance(void);
 		static GLRenderSystem* GetInstancePtr(void);
-		void set_opengl_version(const int major,const int minor);
+		void set_opengl_version(const int major,const int minor)override;
 
 		virtual bool InitRender()override;
 		virtual bool Reset()override;
+		virtual void ClearColorBuffer(void)override;
+		virtual void ClearDepthBuffer(void)override;
+		virtual void SwapRenderBuffers(void)override;
+		virtual void RenderFlush(void)override;
+		virtual void RenderFinish(void)override;
+		
+		HDC hdc(void)const{return hdc_;}
+		HGLRC hrc(void)const{return hrc_;}
+
 	private:
 		HGLRC hrc_;
 		HDC hdc_;
