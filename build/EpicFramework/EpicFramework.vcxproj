@@ -58,7 +58,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\OpenGL\bin;$(ProjectDir)..\vs2010_build\Debug</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EpicMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>EpicMain_d.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

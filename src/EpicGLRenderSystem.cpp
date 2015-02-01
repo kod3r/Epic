@@ -11,7 +11,7 @@ namespace epic{
 
 	GLRenderSystem::~GLRenderSystem()
 	{
-
+		
 	}
 
 	bool GLRenderSystem::InitRender()
@@ -46,6 +46,8 @@ namespace epic{
 		pixel_format_descriptor_ = pixel_format_descriptor;
 
 		Reset();
+
+		ShowWindow(hwnd_, SW_SHOW);
 		return true;
 	}
 
@@ -74,6 +76,7 @@ namespace epic{
 		GLenum err = glewInit();
 		if (GLEW_OK != err)
 			throw(Exception("Reset() -> glewInit() failed!"));
+		
 		const GLubyte* OpenGLVersion =glGetString(GL_VERSION);
 
 		if ('0'+opengl_major_version_ > OpenGLVersion[0])
@@ -105,15 +108,47 @@ namespace epic{
 
 		if (!wglMakeCurrent(hdc_, hrc_))
 			throw(Exception("Reset() -> wglMakeCurrent() failed!"));
+
 		return true;
 	}
 
 	void GLRenderSystem::set_opengl_version(const int major,const int minor)
 	{
+		assert(current_render_type_ == RENDERSYSTEMTYPE_OPENGL);
 		opengl_major_version_ = major;
 		opengl_minor_version_ = minor;
 
 		Reset();
+	}
+
+	void GLRenderSystem::ClearColorBuffer()
+	{
+		glClearColor(clear_color_.r,
+			clear_color_.g,
+			clear_color_.b,
+			clear_color_.a);
+		glClear(GL_COLOR_BUFFER_BIT);
+	}
+
+	void GLRenderSystem::ClearDepthBuffer()
+	{
+		glClearDepth(depth_clear_float_);
+		glClear(GL_DEPTH_BUFFER_BIT);
+	}
+
+	void GLRenderSystem::SwapRenderBuffers()
+	{
+		SwapBuffers(hdc_);
+	}
+
+	void GLRenderSystem::RenderFlush(void)
+	{
+		glFlush();
+	}
+
+	void GLRenderSystem::RenderFinish(void)
+	{
+		glFinish();
 	}
 }
 
