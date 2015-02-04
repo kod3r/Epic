@@ -2,6 +2,7 @@
 #include "include/EpicRoot.h"
 #include "include/EpicSceneManager.h"
 #include "include/EpicNode.h"
+#include "include/EpicMesh.h"
 
 static int cc = 0;
 void RootNode::OnUpdate() {
@@ -26,6 +27,8 @@ EpicFramework::~EpicFramework() {
 void EpicFramework::InitSystem() {
 	RootNode* root_node = new RootNode();
 	root_->scene_manager()->set_root_node(root_node);
+	test_mesh_ = new epic::Mesh();
+	test_mesh_->LoadMeshFromFile("D:/epic/epic/build/resource/man_walk.x");
 }
 
 void EpicFramework::StartRenderLoop() {

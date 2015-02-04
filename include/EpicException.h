@@ -9,18 +9,19 @@
 #define EPIC_INCLUDE_EPICEXCEPTION_H
 
 #include <exception>
+#include "include/EpicPrerequisites.h"
 
 namespace epic {
 	class Exception : public std::exception{
 	public:
-		Exception(const char* message) {}
+		Exception(const String& message);
 		~Exception() throw() {}
 		virtual const char* what() const throw() {
-			return message_;
+			return message_.c_str();
 		}		
 	private:
 		Exception();
-		const char* message_;
+		String message_;
 	}; // EpicException
 } // epic
 
