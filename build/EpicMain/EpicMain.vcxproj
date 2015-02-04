@@ -17,9 +17,11 @@
     <ClInclude Include="..\..\include\EpicInputManager.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
     <ClInclude Include="..\..\include\EpicNode.h" />
+    <ClInclude Include="..\..\include\EpicObject.h" />
     <ClInclude Include="..\..\include\EpicPrerequisites.h" />
     <ClInclude Include="..\..\include\EpicRenderSystem.h" />
     <ClInclude Include="..\..\include\EpicRenderWindow.h" />
+    <ClInclude Include="..\..\include\EpicResourceManager.h" />
     <ClInclude Include="..\..\include\EpicRoot.h" />
     <ClInclude Include="..\..\include\EpicSceneManager.h" />
     <ClInclude Include="..\..\include\EpicSingleton.h" />
@@ -33,6 +35,7 @@
     <ClCompile Include="..\..\src\EpicNode.cpp" />
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicRenderWindow.cpp" />
+    <ClCompile Include="..\..\src\EpicResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicRoot.cpp" />
     <ClCompile Include="..\..\src\EpicSceneManager.cpp" />
   </ItemGroup>

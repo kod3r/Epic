@@ -37,6 +37,7 @@ namespace epic {
 
 		}else if (type == RENDERSYSTEMTYPE_OPENGL) {
 			render_system_ = new GLRenderSystem(render_window_);
+			resource_manager_ = render_system_->resource_manager();
 		}
 		render_system_->InitRender();
 		// 3. init scene manager
