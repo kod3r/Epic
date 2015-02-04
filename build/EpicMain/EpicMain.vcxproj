@@ -15,6 +15,7 @@
     <ClInclude Include="..\..\include\EpicException.h" />
     <ClInclude Include="..\..\include\EpicGLRenderSystem.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
+    <ClInclude Include="..\..\include\EpicMesh.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
     <ClInclude Include="..\..\include\EpicNode.h" />
     <ClInclude Include="..\..\include\EpicObject.h" />
@@ -31,6 +32,7 @@
     <ClCompile Include="..\..\src\EpicException.cpp" />
     <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
+    <ClCompile Include="..\..\src\EpicMesh.cpp" />
     <ClCompile Include="..\..\src\EpicMouse.cpp" />
     <ClCompile Include="..\..\src\EpicNode.cpp" />
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp" />
@@ -90,8 +92,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimpd.lib;glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\Assimp\lib\debug;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -110,8 +112,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp.lib;opengl32.lib;glew32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\Assimp\lib\release;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

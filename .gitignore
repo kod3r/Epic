@@ -6,3 +6,5 @@ ipch/
 *.suo
 debug/
 release/
+!*/lib/debug/
+!*/lib/release/

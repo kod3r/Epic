@@ -49,6 +49,9 @@
     <ClInclude Include="..\..\include\EpicNode.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\EpicMesh.h">
+      <Filter>include</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\EpicResourceManager.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -88,6 +91,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\EpicResourceManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicMesh.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
