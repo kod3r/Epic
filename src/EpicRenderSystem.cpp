@@ -1,4 +1,5 @@
 #include "include/EpicRenderSystem.h"
+#include "include/EpicResourceManager.h"
 
 namespace epic {
 	template<> RenderSystem* Singleton<RenderSystem>::singleton_ = 0;
@@ -102,5 +103,10 @@ namespace epic {
 	void RenderSystem::set_depth_clear_float(const float depth)
 	{
 		depth_clear_float_ = depth;
+	}
+
+	ResourceManager* RenderSystem::resource_manager(void)
+	{
+		return resource_manager_;
 	}
 } // epic
