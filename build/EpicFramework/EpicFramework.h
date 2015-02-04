@@ -24,6 +24,7 @@ public:
 
 private:
 	epic::Root* root_;
+	epic::Mesh* test_mesh_;
 }; // EpicFramework
 
 

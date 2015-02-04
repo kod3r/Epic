@@ -43,6 +43,7 @@ namespace epic {
 	class Exception;
 	class GLRenderSystem;
 	class InputManager;
+	class Mesh;
 	class Mouse;
 	class MouseListener;
 	class Node;
