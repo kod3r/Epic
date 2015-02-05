@@ -13,7 +13,7 @@ namespace epic {
 		RenderSystem(){}
 		RenderSystem(RenderWindow* rwnd);
 		virtual ~RenderSystem();
-		virtual bool InitRender(void);
+		virtual void InitRender(void);
 		virtual void set_opengl_version(const int major,const int minor);
 
 		virtual void ClearColorBuffer(void){}

@@ -33,7 +33,7 @@ namespace epic {
 		render_window_->CreateRenderWindow(title);
 		//2. init render system
 		if (type == RENDERSYSTEMTYPE_D3D9) {
-			render_system_ = new D3D9RenderSystem();
+			render_system_ = new D3D9RenderSystem(render_window_);
 
 		}else if (type == RENDERSYSTEMTYPE_OPENGL) {
 			render_system_ = new GLRenderSystem(render_window_);

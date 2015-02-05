@@ -24,9 +24,9 @@ namespace epic {
 		return singleton_;
 	}
 
-	bool RenderSystem::InitRender(void)
+	void RenderSystem::InitRender(void)
 	{
-		return true;
+		//return true;
 	}
 
 	void RenderSystem::set_opengl_version(const int major,const int minor)

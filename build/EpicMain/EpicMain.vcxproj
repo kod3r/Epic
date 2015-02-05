@@ -89,12 +89,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EPIC_NONCLIENT_BUILD;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..;$(ProjectDir)..\..\OpenGL\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)include;$(ProjectDir)..\..;$(ProjectDir)..\..\OpenGL\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimpd.lib;glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;assimpd.lib;glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)..\..\Assimp\lib\debug;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
