@@ -1,7 +1,6 @@
 #ifndef EPIC_INCLUDE_EPICRENDERSYSTEM_H
 #define EPIC_INCLUDE_EPICRENDERSYSTEM_H
 
-#include "include/EpicResourceManager.h"
 #include "include/EpicPrerequisites.h"
 #include "include/EpicSingleton.h"
 #include <Windows.h>
@@ -40,8 +39,6 @@ namespace epic {
 		
 		void set_clear_color(const float r,const float g,const float b,const float alpha);
 		void set_depth_clear_float(const float depth);
-
-		virtual ResourceManager* resource_manager(void);
 	protected:
 		RenderSystemType current_render_type_;
 
@@ -55,7 +52,6 @@ namespace epic {
 
 		glm::vec4 clear_color_;
 		float depth_clear_float_;
-		ResourceManager* resource_manager_;
 	}; // RenderSystem
 } // epic
 

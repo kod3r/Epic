@@ -14,6 +14,7 @@
     <ClInclude Include="..\..\include\EpicD3D9RenderSystem.h" />
     <ClInclude Include="..\..\include\EpicException.h" />
     <ClInclude Include="..\..\include\EpicGLRenderSystem.h" />
+    <ClInclude Include="..\..\include\EpicGLResourceManager.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
     <ClInclude Include="..\..\include\EpicMesh.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
@@ -31,6 +32,7 @@
     <ClCompile Include="..\..\src\EpicD3D9RenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicException.cpp" />
     <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp" />
+    <ClCompile Include="..\..\src\EpicGLResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
     <ClCompile Include="..\..\src\EpicMesh.cpp" />
     <ClCompile Include="..\..\src\EpicMouse.cpp" />

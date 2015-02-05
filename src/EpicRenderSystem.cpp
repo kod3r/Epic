@@ -104,9 +104,4 @@ namespace epic {
 	{
 		depth_clear_float_ = depth;
 	}
-
-	ResourceManager* RenderSystem::resource_manager(void)
-	{
-		return resource_manager_;
-	}
 } // epic

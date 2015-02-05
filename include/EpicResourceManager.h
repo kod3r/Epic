@@ -2,73 +2,71 @@
 #define EPIC_INCLUDE_EPICRESOURCEMANANGER_H
 #include <GL/glew.h>
 #include <GL/wglew.h>
-#include "include/EpicObject.h"
+#include "include/EpicPrerequisites.h"
 #include "include/EpicSingleton.h"
-#include <map>
+#include "include/EpicRenderSystem.h"
 
 namespace epic
 {
-	class EPIC_EXPORT ResourceManager
-	{
-	public:
-		//static ResourceManager& GetInstance(void);
-		//static ResourceManager* GetInstancePtr(void);
-		ResourceManager(){}
-		~ResourceManager(){}
+	enum EpicDataType{
+		EPIC_FLOAT = 0,
+		EPIC_INT,
+		EPIC_UINT,
+		EPIC_BYTE,
+		EPIC_UBYTE,
+		EPIC_USHORT,
+		EPIC_SHOT
+		//add other types
 	};
 
-	class GLProgram
-	{
-	private:
-		GLint program_handle_;
-		int map_index;
+	enum EpicPrimitiveType{
+		EPIC_TRIANGLES = 0,
+		EPIC_POINTS,
+		EPIC_LINES
+		//
 	};
 
-	class GLAttributeBuffer//GL object attribute buffer
+	class EPIC_EXPORT ShaderProgram
 	{
-	public:
-		GLAttributeBuffer(GLenum data_type, GLsizeiptr type_size, int data_count, GLvoid* data_resource);
-		virtual ~GLAttributeBuffer();
-		int map_index(void){return map_index_;}
-		void set_map_index(const int index){map_index_ = index;}
-		GLenum data_type(void){return data_type_;}
-		int data_count(void){return data_count_;}
 	private:
-		GLenum data_type_;
-		GLuint buffer_handle_;
-		int data_count_;
-		//int referance_count_by_vao_;
-		int map_index_;
+		RenderSystemType current_render_system_;
+		GLProgram* gl_program_ptr_;
 	};
 
-	class GLVertexData//for packing GL vertex attribute buffers
+	class EPIC_EXPORT AttributeBuffer//GL object attribute buffer
 	{
 	public:
-		void AddBuffer(GLAttributeBuffer& buffer);
+		AttributeBuffer(EpicDataType data_type, int data_count, void* data_resource);
+		virtual ~AttributeBuffer();
 	private:
-		GLint vao_handle_;
-		GLProgram shader_program_;
-		std::vector<GLAttributeBuffer> vertex_attribute_buffer_array_;
-		
-		//bool is_visible_;
-		int map_index_;
-		GLenum primitive_type_;
-		//int referance_count_by_object_;
-		GLint instance_count_;
-		std::vector<GLAttributeBuffer> instance_attribute_buffer_array_;
+		RenderSystemType current_render_system_;
+		GLAttributeBuffer* gl_attribute_buffer_ptr_;
 	};
 
-	class EPIC_EXPORT GLResourceManager : public ResourceManager ,public Singleton<GLResourceManager>
+	class EPIC_EXPORT VertexData//for packing GL vertex attribute buffers
 	{
 	public:
-		static GLResourceManager& GetInstance(void);
-		static GLResourceManager* GetInstancePtr(void);
-		void InsertBuffer(GLAttributeBuffer& buffer);
+		VertexData(EpicPrimitiveType primitive_type);
+		void AddBuffer(AttributeBuffer* buffer, int offset, std::string attribute_name, bool is_indices);
+		void UseShaderProgram(ShaderProgram shader_program);
 	private:
-		std::vector<int> visible_data_index_array_;
-		std::map<int, GLVertexData> data_map_;
-		std::map<int, GLProgram> shader_map_;
-		std::map<int, GLAttributeBuffer> buffer_map_;
+		RenderSystemType current_render_system_;
+		GLVertexData* gl_vertex_data_ptr_;
+		//D3DVertexData* .....
+	};
+
+	class EPIC_EXPORT ResourceManager : public Singleton<ResourceManager>
+	{
+	public:
+		static ResourceManager& GetInstance(void);
+		static ResourceManager* GetInstancePtr(void);
+		ResourceManager(RenderSystemType render_system_type);
+		virtual ~ResourceManager();
+		GLResourceManager* gl_resource_manager(void){return gl_resource_manager_;}
+	private:
+		RenderSystemType current_render_system_;
+		GLResourceManager* gl_resource_manager_;
+		//D3DResourceManager* ....
 	};
 }
 

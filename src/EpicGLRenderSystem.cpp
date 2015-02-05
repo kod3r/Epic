@@ -1,3 +1,4 @@
+#include "include/EpicGLResourceManager.h"
 #include "include/EpicGLRenderSystem.h"
 #include "include/EpicRenderWindow.h"
 #include "include/EpicException.h"
@@ -7,7 +8,6 @@ namespace epic{
 		current_render_type_ = RENDERSYSTEMTYPE_OPENGL;
 		opengl_major_version_ = 4;
 		opengl_minor_version_ = 3;
-		gl_resource_manager_ = new GLResourceManager();
 	}
 
 	GLRenderSystem::~GLRenderSystem()
@@ -150,11 +150,6 @@ namespace epic{
 	void GLRenderSystem::RenderFinish(void)
 	{
 		glFinish();
-	}
-
-	GLResourceManager* GLRenderSystem::resource_manager()
-	{
-		return gl_resource_manager_;
 	}
 }
 

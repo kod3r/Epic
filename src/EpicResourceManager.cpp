@@ -1,36 +1,74 @@
 #include "include/EpicResourceManager.h"
+#include "include/EpicGLResourceManager.h"
 
 namespace epic{
-	GLAttributeBuffer::GLAttributeBuffer(GLenum data_type, int type_size, int data_count, GLvoid* data_resource)
+	AttributeBuffer::AttributeBuffer(EpicDataType data_type, int data_count, void* data_resource)
 	{
-		data_type_ = data_type;
-		glGenBuffers(1, &buffer_handle_);
-		data_count_ = data_count;
-		glBindBuffer(GL_ARRAY_BUFFER, buffer_handle_);
-		glBufferData(GL_ARRAY_BUFFER, type_size * data_count, data_resource, GL_DYNAMIC_DRAW);
-		glBindBuffer(GL_ARRAY_BUFFER, 0);
-		int map_index_ = 0;
+		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
+		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL)
+		{
+			switch(data_type)
+			{
+			case EPIC_FLOAT:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_FLOAT, sizeof(float), data_count, data_resource);
+				break;
+			case EPIC_INT:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_INT, sizeof(int), data_count, data_resource);
+				break;
+			case EPIC_UINT:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_INT, sizeof(unsigned int), data_count, data_resource);
+				break;
+			case EPIC_BYTE:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_BYTE, sizeof(signed char), data_count, data_resource);
+				break;
+			case EPIC_UBYTE:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_BYTE, sizeof(unsigned char), data_count, data_resource);
+				break;
+			case EPIC_USHORT:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_SHORT, sizeof(unsigned short), data_count, data_resource);
+				break;
+			case EPIC_SHOT:
+				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_SHORT, sizeof(short), data_count, data_resource);
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	
+	AttributeBuffer::~AttributeBuffer()
+	{
+
 	}
 
-	GLAttributeBuffer::~GLAttributeBuffer()
+	VertexData::VertexData(EpicPrimitiveType primitive_type)
 	{
-		if (buffer_handle_)
-			glDeleteBuffers(1, &buffer_handle_);
+		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
+		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL)
+		{
+			
+		}
 	}
 
-	template<> GLResourceManager* Singleton<GLResourceManager>::singleton_ = 0;
-	GLResourceManager& GLResourceManager::GetInstance(void) {
+	template<> ResourceManager* Singleton<ResourceManager>::singleton_ = 0;
+	ResourceManager& ResourceManager::GetInstance(void) {
 		assert(singleton_);
 		return *singleton_;
 	}
-	GLResourceManager* GLResourceManager::GetInstancePtr(void) {
+	ResourceManager* ResourceManager::GetInstancePtr(void) {
 		return singleton_;
 	}
 
-	void GLResourceManager::InsertBuffer(GLAttributeBuffer& buffer)
+	ResourceManager::ResourceManager(RenderSystemType render_system_type)
 	{
-		assert((buffer.map_index()) == 0);
-		buffer.set_map_index(buffer_map_.size());
-		buffer_map_.insert(std::pair<int, GLAttributeBuffer>(buffer.map_index(), buffer));
+		if (render_system_type == RENDERSYSTEMTYPE_OPENGL)
+		{
+			gl_resource_manager_ = new GLResourceManager();
+		}
+	}
+
+	ResourceManager::~ResourceManager()
+	{
+
 	}
 }

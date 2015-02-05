@@ -4,6 +4,7 @@
 #include <cassert>
 #include <string>
 #include <vector>
+#include <map>
 
 #ifndef GLM_FORCE_RADIANS
 #define GLM_FORCE_RADIANS
@@ -39,9 +40,14 @@ namespace epic {
 	typedef glm::mat4 Matrix4;
 	typedef glm::quat Quaternion;
 	// forward declarations
+	class AttributeBuffer;
 	class D3D9RenderSystem;
 	class Exception;
+	class GLAttributeBuffer;
+	class GLProgram;
 	class GLRenderSystem;
+	class GLResourceManager;
+	class GLVertexData;
 	class InputManager;
 	class Mesh;
 	class Mouse;
@@ -49,8 +55,11 @@ namespace epic {
 	class Node;
 	class RenderSystem;
 	class RenderWindow;
+	class ResourceManager;
 	class Root;
+	class ShaderProgram;
 	class SceneManager;
+	class VertexData;
 
 } // epic
 

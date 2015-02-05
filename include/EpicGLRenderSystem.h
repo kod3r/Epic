@@ -1,8 +1,8 @@
 #ifndef EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
 #define EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
 
+#include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
-#include "include/EpicResourceManager.h"
 #include <GL/glew.h>
 #include <GL/wglew.h>
 
@@ -12,8 +12,6 @@ namespace epic {
 		GLRenderSystem(RenderWindow* rwnd);
 		virtual ~GLRenderSystem();
 
-		static GLRenderSystem& GetInstance(void);
-		static GLRenderSystem* GetInstancePtr(void);
 		void set_opengl_version(const int major,const int minor)override;
 
 		virtual bool InitRender()override;
@@ -26,7 +24,6 @@ namespace epic {
 		
 		HDC hdc(void)const{return hdc_;}
 		HGLRC hrc(void)const{return hrc_;}
-		virtual GLResourceManager* resource_manager()override;
 
 	private:
 		HGLRC hrc_;
@@ -38,8 +35,6 @@ namespace epic {
 		int opengl_minor_version_;
 
 		PIXELFORMATDESCRIPTOR pixel_format_descriptor_;
-
-		GLResourceManager* gl_resource_manager_;
 	}; // GLRenderSystem
 } // epic
 
