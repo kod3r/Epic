@@ -9,7 +9,8 @@ int WINAPI
 	WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd ) 
 {
 	try {
-		EpicFramework* app = new EpicFramework(epic::RENDERSYSTEMTYPE_OPENGL);
+		/*EpicFramework* app = new EpicFramework(epic::RENDERSYSTEMTYPE_OPENGL);*/
+		EpicFramework* app = new EpicFramework(epic::RENDERSYSTEMTYPE_D3D9);
 		app->StartRenderLoop();
 	}
 	catch(const epic::Exception& e) {

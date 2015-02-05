@@ -9,7 +9,7 @@ namespace epic {
 	}
 	Mesh::~Mesh() {
 	}
-	bool Mesh::LoadMeshFromFile(const String& file_name) {
+	void Mesh::LoadMeshFromFile(const String& file_name) {
 		Assimp::Importer importer;
 		const aiScene* scene = importer.ReadFile(file_name, 
 			aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
@@ -18,8 +18,7 @@ namespace epic {
 			String error_message("LoadMeshFromFile() -> ReadFile() failed!\n");
 			error_message += importer.GetErrorString();
 			throw Exception(error_message);
-			return false;
+			
 		}
-		return true;
 	}
 } // epic
