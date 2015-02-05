@@ -8,7 +8,8 @@ namespace epic {
 	public: 
 		Mesh();
 		virtual ~Mesh();
-		bool LoadMeshFromFile(const String& file_name);
+		void LoadMeshFromFile(const String& file_name);
+	private:
 	};
 
 } // epic
