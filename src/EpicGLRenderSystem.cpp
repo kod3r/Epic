@@ -15,7 +15,7 @@ namespace epic{
 		
 	}
 
-	bool GLRenderSystem::InitRender()
+	void GLRenderSystem::InitRender()
 	{
 		hwnd_ = render_window_->hwnd();
 		hInstance_ = render_window_->hinstance();
@@ -49,7 +49,7 @@ namespace epic{
 		Reset();
 
 		ShowWindow(hwnd_, SW_SHOW);
-		return true;
+		//return true;
 	}
 
 	bool GLRenderSystem::Reset()

@@ -12,21 +12,20 @@ namespace epic {
 		GLRenderSystem(RenderWindow* rwnd);
 		virtual ~GLRenderSystem();
 
-		static GLRenderSystem& GetInstance(void);
-		static GLRenderSystem* GetInstancePtr(void);
+
 		void set_opengl_version(const int major,const int minor)override;
 
-		virtual bool InitRender()override;
-		virtual bool Reset()override;
-		virtual void ClearColorBuffer(void)override;
-		virtual void ClearDepthBuffer(void)override;
-		virtual void SwapRenderBuffers(void)override;
-		virtual void RenderFlush(void)override;
-		virtual void RenderFinish(void)override;
+		virtual void InitRender();
+		virtual bool Reset();
+		virtual void ClearColorBuffer(void);
+		virtual void ClearDepthBuffer(void);
+		virtual void SwapRenderBuffers(void);
+		virtual void RenderFlush(void);
+		virtual void RenderFinish(void);
 		
 		HDC hdc(void)const{return hdc_;}
 		HGLRC hrc(void)const{return hrc_;}
-		virtual GLResourceManager* resource_manager()override;
+		virtual GLResourceManager* resource_manager();
 
 	private:
 		HGLRC hrc_;
