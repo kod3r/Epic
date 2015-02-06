@@ -5,7 +5,8 @@
 #include "assimp/include/postprocess.h"
 
 namespace epic {
-	Mesh::Mesh(){
+	Mesh::Mesh(bool is_static):
+	is_static_(is_static){
 	}
 	Mesh::~Mesh() {
 	}

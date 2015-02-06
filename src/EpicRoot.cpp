@@ -58,6 +58,7 @@ namespace epic {
 			//	GameLogic();
 			//	OnRendering();
 				scene_manager_->UpdateScene();
+				render_system_->DrawScene();
 			}
 		}
 	}

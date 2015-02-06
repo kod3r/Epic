@@ -21,6 +21,7 @@ namespace epic {
 		virtual void SwapRenderBuffers(void){}
 		virtual void RenderFlush(void){}
 		virtual void RenderFinish(void){}
+		virtual void DrawScene(void){}
 
 		static RenderSystem& GetInstance(void);
 		static RenderSystem* GetInstancePtr(void);

@@ -1,6 +1,7 @@
 #include "include/EpicSceneManager.h"
 #include "include/EpicNode.h"
 
+
 namespace epic {
 	SceneManager::SceneManager():
 	root_node_(NULL){
@@ -12,8 +13,9 @@ namespace epic {
 	void SceneManager::UpdateScene() {
 		root_node_->Update();
 	}
-	void SceneManager::DrawScene() {
-	}
+	/*void SceneManager::DrawScene() {
+
+	}*/
 	Node* SceneManager::root_node() const {
 		return root_node_;
 	}
