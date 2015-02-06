@@ -3,7 +3,11 @@
 #include "include/EpicRenderWindow.h"
 #include "include/EpicException.h"
 namespace epic{
-	GLRenderSystem::GLRenderSystem(RenderWindow* rwnd):RenderSystem(rwnd)
+	GLRenderSystem::GLRenderSystem(RenderWindow* rwnd):RenderSystem(rwnd),
+	hwnd_(0),
+	hrc_(0),
+	hdc_(0),
+	hInstance_(0)
 	{
 		current_render_type_ = RENDERSYSTEMTYPE_OPENGL;
 		opengl_major_version_ = 4;

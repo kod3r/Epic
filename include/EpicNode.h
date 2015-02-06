@@ -49,6 +49,12 @@ namespace epic {
 		bool visible_;
 		bool need_update_;
 	}; // node
+
+	class EPIC_EXPORT Object : public Node
+	{
+	private:
+		Mesh* mesh_;
+	};
 } // epic
 
 #endif // EPIC_INCLUDE_EPICNODE_H

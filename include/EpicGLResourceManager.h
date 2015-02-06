@@ -46,7 +46,6 @@ namespace epic
 		void AddBuffer(GLAttributeBuffer* buffer, int offset, std::string attribute_name, bool is_indices);
 		void DeleteBuffer(std::string attribute_name);
 		void UseProgram(GLProgram program);
-		void Finish();//write it at the end of the initial GLObject,or when drawing?
 	private:
 		GLuint vao_handle_;
 		GLProgram* shader_program_;
@@ -68,7 +67,7 @@ namespace epic
 		GLResourceManager();
 		virtual ~GLResourceManager();
 	private:
-		std::vector<int> visible_data_index_array_;
+		std::map<int, int> visible_data_index_array_;
 		std::map<int, GLVertexData*> data_map_;
 		std::map<int, GLProgram*> shader_map_;
 		std::map<int, GLAttributeBuffer*> buffer_map_;
