@@ -27,6 +27,11 @@ namespace epic {
 		// start rendering loop
 		void StartRendering(void);
 		void RenderOneFrame(void);
+		// @brief load mesh from file
+		// @param file_name, the file name
+		// @param mesh, the mesh to fill with
+		// @Param material, the material to fill with
+		void LoadMeshFromFile(const String& file_name, Mesh* mesh, Material* material);
 		RenderWindow* render_window() const {
 			return render_window_;
 		}

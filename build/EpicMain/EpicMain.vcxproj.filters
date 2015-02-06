@@ -64,6 +64,9 @@
     <ClInclude Include="..\..\include\EpicD3D9ResourceManager.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\EpicMaterial.h">
+      <Filter>include</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\EpicRenderSystem.cpp">
@@ -106,6 +109,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\EpicD3D9ResourceManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\EpicMaterial.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

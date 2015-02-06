@@ -12,7 +12,7 @@
 #include "include/EpicPrerequisites.h"
 #include "include/EpicSingleton.h"
 #include "include/EpicRenderSystem.h"
-
+struct aiScene;
 namespace epic
 {
 	// @brief enum to describe data type in GPU buffer
@@ -35,15 +35,7 @@ namespace epic
 		//
 	};
 
-	// @remark abstract shader program class, GLSL shader or HLSL shader depending on the current renderer.
-	class EPIC_EXPORT ShaderProgram
-	{
-	public:
-		void SetName(std::string name);
-	private:
-		RenderSystemType current_render_system_;
-		GLProgram* gl_program_ptr_;
-	};
+	
 
 	// @remark abstract GPU buffer for model vertex attribute, GL or D3D buffer depending on the current renderer.
 	class EPIC_EXPORT AttributeBuffer//GL object attribute buffer
@@ -54,7 +46,7 @@ namespace epic
 		AttributeBuffer();
 		// @param data_resource:a void pointer, pointing to a RAM, with continuous data_count data of data_type.
 		AttributeBuffer(EpicDataType data_type, int data_count, void* data_resource);
-		virtual ~AttributeBuffer(){}
+		virtual ~AttributeBuffer();
 		void setName(std::string name);
 		// @brief add count number of data at the end of the buffer
 		// @param data_resource:a void pointer, pointing to a RAM, with continuous count data of the buffer's data_type.
@@ -69,16 +61,8 @@ namespace epic
 		RenderSystemType current_render_system_;
 		GLAttributeBuffer* gl_attribute_buffer_ptr_;
 	};
-
-	class EPIC_EXPORT Material
-	{
-	public:
-		void setName(std::string name);
-	private:
-		RenderSystemType current_render_system_;
-		//....
-	};
-
+	
+	
 	// @remark a collection of VertexData and ShaderProgam for one model data
 	class EPIC_EXPORT VertexData
 	{
@@ -90,7 +74,7 @@ namespace epic
 		void UseShaderProgram(ShaderProgram shader_program);
 		// @brief add an AttributeBuffer.
 		// @param attribute_name: the name of attribute in shader.
-		// @param component_stride: the component number of this attribute in shader.
+		// @param component_stride: the number of components in shader.
 		// @param is_indices: true if the buffer is filling with primitive indices.
 		void AddBuffer(AttributeBuffer* buffer, int component_stride, std::string attribute_name, bool is_indices);
 		void AddInstanceBuffer(int component_stride, EpicDataType data_type, std::string attribute_name);

@@ -40,6 +40,9 @@ namespace epic{
 	{
 
 	}
+//----------------------------------------------------------------------------
+// VertexData
+//----------------------------------------------------------------------------
 
 	VertexData::VertexData(EpicPrimitiveType primitive_type)
 	{
@@ -49,6 +52,11 @@ namespace epic{
 			
 		}
 	}
+	void VertexData::AddBuffer(AttributeBuffer* buffer, int component_stride, std::string attribute_name, bool is_indices) {
+	}
+//----------------------------------------------------------------------------
+// ResourceManager
+//----------------------------------------------------------------------------
 
 	template<> ResourceManager* Singleton<ResourceManager>::singleton_ = 0;
 	ResourceManager& ResourceManager::GetInstance(void) {
