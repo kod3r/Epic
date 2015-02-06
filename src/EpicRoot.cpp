@@ -6,6 +6,11 @@
 #include "include/EpicGLRenderSystem.h"
 #include "include/EpicD3D9RenderSystem.h"
 #include "include/EpicSceneManager.h"
+#include "include/EpicException.h"
+#include "include/EpicMesh.h"
+#include "assimp/include/Importer.hpp"
+#include "assimp/include/scene.h"
+#include "assimp/include/postprocess.h"
 
 namespace epic {
 	//Root::Root():
@@ -58,9 +63,30 @@ namespace epic {
 			//	GameLogic();
 			//	OnRendering();
 				scene_manager_->UpdateScene();
+				render_system_->DrawScene();
 			}
 		}
 	}
+
+	void Root::LoadMeshFromFile(const String& file_name, Mesh* mesh, Material* material) {
+		if (!mesh || !material) {
+			throw Exception("Root::LoadMeshFromFile() invalid mesh or material!");
+		}
+		Assimp::Importer importer;
+		const aiScene* scene = importer.ReadFile(file_name, 
+			aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
+		if (!scene) {
+			//throw(Exception("LoadMeshFromFile() -> ReadFile() failed!"));
+			String error_message("LoadMeshFromFile() -> ReadFile() failed!\n");
+			error_message += importer.GetErrorString();
+			throw Exception(error_message);
+
+		}
+		
+		mesh->InitMeshFromFile(scene);
+
+	}
+
 	template<> Root* Singleton<Root>::singleton_ = 0;
 	Root& Root::GetInstance(void) {
 		assert(singleton_);
