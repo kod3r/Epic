@@ -53,6 +53,7 @@ namespace epic {
 	class Mouse;
 	class MouseListener;
 	class Node;
+	class Object;
 	class RenderSystem;
 	class RenderWindow;
 	class ResourceManager;

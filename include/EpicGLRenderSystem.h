@@ -1,3 +1,10 @@
+/**
+ * @file EpicGLRenderSystem.h
+ * @brief 
+ * @author Xiao Miaomiao
+ * @version 1.0
+ * @data 2015
+ */
 #ifndef EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
 #define EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
 
@@ -7,13 +14,18 @@
 #include <GL/wglew.h>
 
 namespace epic {
+	// @remark
+	//   
 	class EPIC_EXPORT GLRenderSystem : public RenderSystem {
 	public:
+		// @brief 
+		// @param rwnd, ...
+		// @return ,...
 		GLRenderSystem(RenderWindow* rwnd);
 		virtual ~GLRenderSystem();
 
 		void set_opengl_version(const int major,const int minor)override;
-
+		// 
 		virtual void InitRender();
 		virtual bool Reset();
 		virtual void ClearColorBuffer(void);

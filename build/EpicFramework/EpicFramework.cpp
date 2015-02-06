@@ -18,6 +18,7 @@ void RootNode::OnUpdate() {
 
 EpicFramework::EpicFramework(epic::RenderSystemType render_system_type) {
 	root_ = new epic::Root(render_system_type);
+	root_->render_system()->set_opengl_version(3, 1);
 }
 
 EpicFramework::~EpicFramework() {
