@@ -10,7 +10,7 @@ namespace epic {
 		SceneManager();
 		virtual ~SceneManager();
 		virtual void UpdateScene();
-		virtual void DrawScene();
+	//	virtual void DrawScene();
 
 		Node* root_node() const;
 		void set_root_node(Node* root_node);

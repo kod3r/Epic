@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\EpicD3D9RenderSystem.h" />
+    <ClInclude Include="..\..\include\EpicD3D9ResourceManager.h" />
     <ClInclude Include="..\..\include\EpicException.h" />
     <ClInclude Include="..\..\include\EpicGLRenderSystem.h" />
     <ClInclude Include="..\..\include\EpicGLResourceManager.h" />
     <ClInclude Include="..\..\include\EpicInputManager.h" />
+    <ClInclude Include="..\..\include\EpicMaterial.h" />
     <ClInclude Include="..\..\include\EpicMesh.h" />
     <ClInclude Include="..\..\include\EpicMouse.h" />
     <ClInclude Include="..\..\include\EpicNode.h" />
@@ -42,6 +44,8 @@
     <ClCompile Include="..\..\src\EpicResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicRoot.cpp" />
     <ClCompile Include="..\..\src\EpicSceneManager.cpp" />
+    <ClCompile Include="..\EpicD3D9ResourceManager.cpp" />
+    <ClCompile Include="..\EpicMaterial.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0478FE41-F1A0-48DF-900E-4E1551ACDA0E}</ProjectGuid>

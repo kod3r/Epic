@@ -19,6 +19,13 @@ namespace epic {
 	#	define EPIC_EXPORT __declspec(dllimport)
 	#endif
 
+	#ifndef MAX_NUM_COLOR_SETS
+	#define MAX_NUM_COLOR_SETS 0x8
+	#endif
+	#ifndef MAX_NUM_TEXTURECOORDS
+	#define MAX_NUM_TEXTURECOORDS 0x8
+	#endif
+
 	// build-in type define
 	typedef unsigned __int64 uint64;
 	typedef unsigned int uint32;
@@ -32,7 +39,7 @@ namespace epic {
 	typedef double float64;
 	
 	typedef std::string String;
-
+	
 	typedef glm::vec2 Vector2;
 	typedef glm::vec3 Vector3;
 	typedef glm::vec4 Vector4;
@@ -49,6 +56,7 @@ namespace epic {
 	class GLResourceManager;
 	class GLVertexData;
 	class InputManager;
+	class Material;
 	class Mesh;
 	class Mouse;
 	class MouseListener;
