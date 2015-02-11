@@ -4,16 +4,6 @@
 #include "include/EpicPrerequisites.h"
 struct aiMaterial;
 namespace epic {
-	// @remark abstract shader program class, GLSL shader or HLSL shader depending on the current renderer.
-	class EPIC_EXPORT ShaderProgram
-	{
-	public:
-		void SetName(std::string name);
-	private:
-		RenderSystemType current_render_system_;
-		GLProgram* gl_program_ptr_;
-	};
-
 	class EPIC_EXPORT Material
 	{
 	public:

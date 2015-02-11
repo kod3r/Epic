@@ -3,7 +3,7 @@
  * @brief Abstract classes to manage GPU buffers.
  * @author Xiao Miaomiao
  * @version 1.0
- * @data 2015
+ * @data 2015.2
  */
 #ifndef EPIC_INCLUDE_EPICRESOURCEMANANGER_H
 #define EPIC_INCLUDE_EPICRESOURCEMANANGER_H
@@ -34,12 +34,56 @@ namespace epic
 		EPIC_LINES
 		//
 	};
+	
+	enum EpicTextureFormat
+	{
+		EPIC_RGBA_32FLOAT = 0,
+		EPIC_RGBA_32INT,
+		EPIC_RGBA_8BYTE,
+		EPIC_RGB_32FLOAT,
+		EPIC_RGB_32INT,
+		EPIC_RGB_8BYTE,
+		EPIC_R_32F,
+		EPIC_R_32INT,
+		EPIC_R_8BYTE
+	};
 
 	const uint32 BUFFER_USAGE_DYNAMIC = 0x1;
 	const uint32 BUFFER_USAGE_STATIC = 0x2;
 	const uint32 BUFFER_USAGE_WRITEONLY = 0x4;
-	
 
+	enum EpicTextureFilter
+	{
+		EPIC_FILTER_NEAREST = 0,
+		EPIC_FILTER_LINEAR
+	};
+
+	enum EpicTextureWrap
+	{
+		EPIC_WARP_CLAMP = 0,
+		EPIC_WARA_REPEAT,
+		EPIC_WARA_MIRRORED_REPEAT
+	};
+	// @remark abstract shader program class, GLSL shader or HLSL shader depending on the current renderer.
+	class EPIC_EXPORT ShaderProgram
+	{
+	public:
+		void SetName(std::string name);
+	private:
+		RenderSystemType current_render_system_;
+		GLProgram* gl_program_ptr_;
+	};
+	
+	class Texture2D
+	{
+	public:
+		Texture2D(int width, int height, int color_stride, EpicDataType type, void* data);
+		void SetName(std::string name);
+		GLTexture2D* gl_texture_2d_ptr(void){return gl_texture_2d_ptr_;}
+	private:
+		RenderSystemType current_render_system_;
+		GLTexture2D* gl_texture_2d_ptr_;
+	};
 	// @remark abstract GPU buffer for model vertex attribute, GL or D3D buffer depending on the current renderer.
 	class EPIC_EXPORT AttributeBuffer//GL object attribute buffer
 	{
@@ -60,6 +104,7 @@ namespace epic
 		void FillData(int offset, int count, void* data_resource);
 		// @brief set data type in buffer
 		void SetDataType(EpicDataType type);
+		GLAttributeBuffer* gl_attribute_buffer_ptr(void){return gl_attribute_buffer_ptr_;}
 	private:
 		RenderSystemType current_render_system_;
 		GLAttributeBuffer* gl_attribute_buffer_ptr_;
@@ -75,19 +120,23 @@ namespace epic
 		VertexData(EpicPrimitiveType primitive_type, uint32 buffer_size = 0, uint32 flag = 0);
 		virtual ~VertexData(){}
 		void setName(const String& name);
-		void UseShaderProgram(ShaderProgram shader_program);
+		void UseShaderProgram(ShaderProgram* shader_program);
 		// @brief add an AttributeBuffer.
 		// @param attribute_name: the name of attribute in shader.
 		// @param component_stride: the number of components in shader.
 		// @param is_indices: true if the buffer is filling with primitive indices.
 		void AddBuffer(const AttributeBuffer* buffer, const int component_stride, const String& attribute_name, bool is_indices);
-		void AddInstanceBuffer(const int component_stride, EpicDataType data_type, const String& attribute_name);
-		AttributeBuffer* GetAttributeBufferPtrWithName(const String& attribute_name);
-		void DeleteAttributeBufferWithName(const String& attribute_name);
-		void UseMaterial(const Material* material);
+		// @param struct_byte_size: if the buffer is NOT filling with a single attribute, set the struct size.
+		//void AddBuffer(AttributeBuffer* buffer, int component_stride, std::string attribute_name, int struct_byte_size);
+		void AddInstanceBuffer(int component_stride, EpicDataType data_type, std::string attribute_name);
+		AttributeBuffer* GetAttributeBufferPtrWithName(std::string attribute_name);
+		void DeleteAttributeBufferWithName(std::string attribute_name);
+		void UseMaterial(Material* material);
 		// @brief interface per instance, when traverse Objects in scene
 		void PushBackInstance(float* model_matrix);
+		
 		void PushBackInstanceValueWithName(const String& instance_attribute_name, int count, void* data_resource);
+		void PushBackToVisibleArray(int render_priority);
 	private:
 		RenderSystemType current_render_system_;
 		GLVertexData* gl_vertex_data_ptr_;

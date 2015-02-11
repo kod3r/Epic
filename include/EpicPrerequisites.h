@@ -76,7 +76,6 @@ namespace epic {
 	class VertexData;
 
 
-
 } // epic
 
 #endif // EPIC_INCLUDE_EPICPREREQUISITES_H

@@ -4,37 +4,16 @@
 
 
 namespace epic{
-	AttributeBuffer::AttributeBuffer(EpicDataType data_type, uint32 data_count, void* data_resource)
+	
+//----------------------------------------------------------------------------
+// AttributeBuffer
+//----------------------------------------------------------------------------
 	{
 		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
 		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL)
 		{
-			switch(data_type)
-			{
-			case EPIC_FLOAT:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_FLOAT, sizeof(float), data_count, data_resource);
-				break;
-			case EPIC_INT:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_INT, sizeof(int), data_count, data_resource);
-				break;
-			case EPIC_UINT:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_INT, sizeof(unsigned int), data_count, data_resource);
-				break;
-			case EPIC_BYTE:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_BYTE, sizeof(signed char), data_count, data_resource);
-				break;
-			case EPIC_UBYTE:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_BYTE, sizeof(unsigned char), data_count, data_resource);
-				break;
-			case EPIC_USHORT:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_UNSIGNED_SHORT, sizeof(unsigned short), data_count, data_resource);
-				break;
-			case EPIC_SHOT:
-				gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GL_SHORT, sizeof(short), data_count, data_resource);
-				break;
-			default:
-				break;
-			}
+			
+			gl_attribute_buffer_ptr_ = new GLAttributeBuffer(GLTypeEnum[data_type], GLTypeSize[data_type], data_count, data_resource);
 		}
 	}
 	
@@ -45,7 +24,6 @@ namespace epic{
 //----------------------------------------------------------------------------
 // VertexData
 //----------------------------------------------------------------------------
-
 	VertexData::VertexData(EpicPrimitiveType primitive_type, uint32 vertex_struct_size, uint32 flag)
 	{
 		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
