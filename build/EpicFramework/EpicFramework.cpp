@@ -19,6 +19,7 @@ void RootNode::OnUpdate() {
 EpicFramework::EpicFramework(epic::RenderSystemType render_system_type) {
 	root_ = new epic::Root(render_system_type);
 	root_->render_system()->set_opengl_version(3, 1);
+	root_->resource_manager()->set_resource_file_location("../resource/");
 }
 
 EpicFramework::~EpicFramework() {
@@ -29,7 +30,8 @@ void EpicFramework::InitSystem() {
 	RootNode* root_node = new RootNode();
 	root_->scene_manager()->set_root_node(root_node);
 	test_mesh_ = new epic::Mesh();
-	test_mesh_->LoadMeshFromFile("../resource/man_walk.x");
+	root_->LoadMeshFromFile("../resource/man_walk.x", test_mesh_, NULL);
+	
 }
 
 void EpicFramework::StartRenderLoop() {

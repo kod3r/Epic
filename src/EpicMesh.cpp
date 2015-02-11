@@ -1,8 +1,11 @@
 #include "include/EpicMesh.h"
 #include "include/EpicException.h"
 #include "include/EpicResourceManager.h"
+#include "include/EpicMaterial.h"
 #include "assimp/include/scene.h"
 #include "assimp/include/mesh.h"
+#include "assimp/include/material.h"
+
 
 namespace epic {
 	SubMesh::SubMesh():
@@ -129,12 +132,14 @@ namespace epic {
 
 	Mesh::Mesh(bool is_static):
 	is_static_(is_static),
-	num_submesh_(0)
+	num_submesh_(0),
+	num_material_(0)
 	{
 	}
 	Mesh::~Mesh() {
 	}
 	void Mesh::InitMeshFromFile(const aiScene* scene) {
+		// 1. init meshes
 		num_submesh_ = scene->mNumMeshes;
 		submesh_array_.clear();
 		for (uint32 i = 0; i < num_submesh_; ++i) {
@@ -148,6 +153,17 @@ namespace epic {
 				submesh_array_.push_back(submesh);
 			}
 			vertex_data_array_.push_back(vertex_data);
+		}
+		// 2. init materials
+		num_material_ = scene->mNumMaterials;
+		material_array_.clear();
+		for (uint32 i = 0; i < num_material_; ++i) {
+			Material* epic_material = new Material();
+			
+			const aiMaterial* material = scene->mMaterials[i];
+			epic_material->InitMeshFromFile(material);
+			material_array_.push_back(epic_material);
+			
 		}
 	}
 } // epic

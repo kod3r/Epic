@@ -32,16 +32,10 @@ namespace epic {
 		// @param mesh, the mesh to fill with
 		// @Param material, the material to fill with
 		void LoadMeshFromFile(const String& file_name, Mesh* mesh, Material* material);
-		RenderWindow* render_window() const {
-			return render_window_;
-		}
-		RenderSystem* render_system() const {
-			return render_system_;
-		}
-		SceneManager* scene_manager() const {
-			return scene_manager_;
-		}
-
+		RenderWindow* render_window() const { return render_window_; }
+		RenderSystem* render_system() const { return render_system_; }
+		SceneManager* scene_manager() const { return scene_manager_; }
+		ResourceManager* resource_manager() const { return resource_manager_; }
 		static Root& GetInstance(void);
 		static Root* GetInstancePtr(void);
 	private:
