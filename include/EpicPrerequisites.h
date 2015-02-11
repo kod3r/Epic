@@ -69,7 +69,6 @@ namespace epic {
 	class ShaderProgram;
 	class SceneManager;
 	class VertexData;
-
 } // epic
 
 #endif // EPIC_INCLUDE_EPICPREREQUISITES_H
