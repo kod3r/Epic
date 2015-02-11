@@ -3,6 +3,7 @@
 
 #include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
+
 #include <d3d9.h>
 
 namespace epic {
@@ -18,6 +19,7 @@ namespace epic {
 		virtual void SwapRenderBuffers(void);
 		virtual void RenderFlush(void);
 		virtual void RenderFinish(void);
+		IDirect3DDevice9* idirect3d_device9() const { return idirect3d_device9_; }
 	private:
 		
 		IDirect3D9* idirect3d9_;

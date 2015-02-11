@@ -32,10 +32,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\EpicD3D9RenderSystem.cpp" />
+    <ClCompile Include="..\..\src\EpicD3D9ResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicException.cpp" />
     <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp" />
     <ClCompile Include="..\..\src\EpicGLResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicInputManager.cpp" />
+    <ClCompile Include="..\..\src\EpicMaterial.cpp" />
     <ClCompile Include="..\..\src\EpicMesh.cpp" />
     <ClCompile Include="..\..\src\EpicMouse.cpp" />
     <ClCompile Include="..\..\src\EpicNode.cpp" />
@@ -44,8 +46,6 @@
     <ClCompile Include="..\..\src\EpicResourceManager.cpp" />
     <ClCompile Include="..\..\src\EpicRoot.cpp" />
     <ClCompile Include="..\..\src\EpicSceneManager.cpp" />
-    <ClCompile Include="..\EpicD3D9ResourceManager.cpp" />
-    <ClCompile Include="..\EpicMaterial.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0478FE41-F1A0-48DF-900E-4E1551ACDA0E}</ProjectGuid>
@@ -98,8 +98,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>d3d9.lib;assimpd.lib;glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\Assimp\lib\debug;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;d3d9.lib;assimpd.lib;glew32.lib;opengl32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\FreeImage;$(ProjectDir)..\..\Assimp\lib\debug;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,15 +111,15 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>EPIC_NONCLIENT_BUILD;WIN32;NDEBUG;_WINDOWS;_USRDLL;EPICMAIN_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..;$(ProjectDir)..\..\OpenGL\inc</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(DXSDK_DIR)include;$(ProjectDir)..\..;$(ProjectDir)..\..\OpenGL\inc</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>assimp.lib;opengl32.lib;glew32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ProjectDir)..\..\Assimp\lib\release;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeimage.lib;assimp.lib;opengl32.lib;glew32.lib;dinput8.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\..\FreeImage;$(ProjectDir)..\..\Assimp\lib\release;$(ProjectDir)..\..\OpenGL\bin;$(DXSDK_DIR)lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
