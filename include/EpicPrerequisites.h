@@ -26,6 +26,8 @@ namespace epic {
 	#define MAX_NUM_TEXTURECOORDS 0x8
 	#endif
 
+	enum RenderSystemType{RENDERSYSTEMTYPE_D3D9 = 0, RENDERSYSTEMTYPE_OPENGL};
+
 	// build-in type define
 	typedef unsigned __int64 uint64;
 	typedef unsigned int uint32;
@@ -48,7 +50,10 @@ namespace epic {
 	typedef glm::quat Quaternion;
 	// forward declarations
 	class AttributeBuffer;
+	class D3D9AttributeBuffer;
 	class D3D9RenderSystem;
+	class D3D9ResourceManager;
+	class D3D9VertexData;
 	class Exception;
 	class GLAttributeBuffer;
 	class GLProgram;
@@ -69,6 +74,8 @@ namespace epic {
 	class ShaderProgram;
 	class SceneManager;
 	class VertexData;
+
+
 
 } // epic
 

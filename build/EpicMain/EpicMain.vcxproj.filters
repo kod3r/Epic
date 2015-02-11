@@ -108,10 +108,10 @@
     <ClCompile Include="..\..\src\EpicGLResourceManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\EpicD3D9ResourceManager.cpp">
+    <ClCompile Include="..\..\src\EpicD3D9ResourceManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\EpicMaterial.cpp">
+    <ClCompile Include="..\..\src\EpicMaterial.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

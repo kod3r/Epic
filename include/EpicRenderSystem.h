@@ -7,7 +7,7 @@
 #include <glm/glm.hpp>
 
 namespace epic {
-	enum RenderSystemType{RENDERSYSTEMTYPE_D3D9 = 0, RENDERSYSTEMTYPE_OPENGL};
+	
 	class EPIC_EXPORT RenderSystem : public Singleton<RenderSystem> {
 	public:
 		RenderSystem(){}

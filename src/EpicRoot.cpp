@@ -31,6 +31,10 @@ namespace epic {
 			delete scene_manager_;
 			scene_manager_ = 0;
 		}
+		if (resource_manager_) {
+			delete resource_manager_;
+			resource_manager_ = 0;
+		}
 	}
 	Root::Root(RenderSystemType type, const char* title) {
 		// 1. create render window
@@ -69,9 +73,9 @@ namespace epic {
 	}
 
 	void Root::LoadMeshFromFile(const String& file_name, Mesh* mesh, Material* material) {
-		if (!mesh || !material) {
+		/*if (!mesh || !material) {
 			throw Exception("Root::LoadMeshFromFile() invalid mesh or material!");
-		}
+		}*/
 		Assimp::Importer importer;
 		const aiScene* scene = importer.ReadFile(file_name, 
 			aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);

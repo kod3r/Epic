@@ -47,9 +47,11 @@ namespace epic {
 		// creating buffer.
 		bool is_static_;
 		uint32 num_submesh_;
+		uint32 num_material_;
 		std::vector<SubMesh*> submesh_array_;
 		// the GPU buffer of the mesh
 		std::vector<VertexData*> vertex_data_array_;
+		std::vector<Material*> material_array_;
 	};
 
 } // epic

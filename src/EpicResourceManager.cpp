@@ -1,8 +1,10 @@
 #include "include/EpicResourceManager.h"
 #include "include/EpicGLResourceManager.h"
+#include "include/EpicD3D9ResourceManager.h"
+
 
 namespace epic{
-	AttributeBuffer::AttributeBuffer(EpicDataType data_type, int data_count, void* data_resource)
+	AttributeBuffer::AttributeBuffer(EpicDataType data_type, uint32 data_count, void* data_resource)
 	{
 		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
 		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL)
@@ -44,15 +46,17 @@ namespace epic{
 // VertexData
 //----------------------------------------------------------------------------
 
-	VertexData::VertexData(EpicPrimitiveType primitive_type)
+	VertexData::VertexData(EpicPrimitiveType primitive_type, uint32 vertex_struct_size, uint32 flag)
 	{
 		current_render_system_ = RenderSystem::GetInstancePtr()->current_render_type();
 		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL)
 		{
 			
+		}else if (current_render_system_ == RENDERSYSTEMTYPE_D3D9) {
+			d3d9_vertex_data_ = new D3D9VertexData(vertex_struct_size, flag);
 		}
 	}
-	void VertexData::AddBuffer(AttributeBuffer* buffer, int component_stride, std::string attribute_name, bool is_indices) {
+	void VertexData::AddBuffer(const AttributeBuffer* buffer, const int component_stride, const String& attribute_name, bool is_indices) {
 	}
 //----------------------------------------------------------------------------
 // ResourceManager
@@ -67,12 +71,13 @@ namespace epic{
 		return singleton_;
 	}
 
-	ResourceManager::ResourceManager(RenderSystemType render_system_type)
+	ResourceManager::ResourceManager(RenderSystemType render_system_type, const String& resource_file_location)
 	{
 		if (render_system_type == RENDERSYSTEMTYPE_OPENGL)
 		{
 			gl_resource_manager_ = new GLResourceManager();
 		}
+		resource_file_location_ = resource_file_location;
 	}
 
 	ResourceManager::~ResourceManager()
