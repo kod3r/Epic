@@ -1,5 +1,5 @@
 #include "include/EpicRenderSystem.h"
-#include "include/EpicResourceManager.h"
+//#include "include/EpicResourceManager.h"
 
 namespace epic {
 	template<> RenderSystem* Singleton<RenderSystem>::singleton_ = 0;

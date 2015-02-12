@@ -1,5 +1,5 @@
-#include "include/EpicGLResourceManager.h"
-#include "include/EpicGLRenderSystem.h"
+//#include "include/EpicGLResourceManager.h"
+#include "include/opengl/EpicGLRenderSystem.h"
 #include "include/EpicRenderWindow.h"
 #include "include/EpicException.h"
 namespace epic{

@@ -85,7 +85,7 @@ namespace epic
 		//int map_index;
 	};
 
-	class GLTexture2D
+	/*class GLTexture2D
 	{
 	public:
 		friend class GLVertexData;
@@ -93,7 +93,7 @@ namespace epic
 	private:
 		GLuint texture_handle_;
 		int referance_count_by_vao_;
-	};
+	};*/
 
 	class GLAttributeBuffer//GL object attribute buffer
 	{

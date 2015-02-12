@@ -1,6 +1,6 @@
 #include "include/EpicMaterial.h"
 #include "include/EpicException.h"
-#include "include/EpicResourceManager.h"
+//#include "include/EpicResourceManager.h"
 #include "include/EpicRoot.h"
 #include "assimp/include/material.h"
 #include "FreeImage/FreeImage.h"
@@ -59,44 +59,44 @@ namespace epic {
 		}*/
 	}
 	void Material::LoadTexture(const String& file_name) {
-		//image format
-		FREE_IMAGE_FORMAT image_format = FIF_UNKNOWN;
-		//pointer to the image, once loaded
-		FIBITMAP *dib(0);
-		//pointer to the image data
-		BYTE* bits(0);
-		//image width and height
-		unsigned int width(0), height(0);
-		//OpenGL's image ID to map to
-		//GLuint gl_texID;
+		////image format
+		//FREE_IMAGE_FORMAT image_format = FIF_UNKNOWN;
+		////pointer to the image, once loaded
+		//FIBITMAP *dib(0);
+		////pointer to the image data
+		//BYTE* bits(0);
+		////image width and height
+		//unsigned int width(0), height(0);
+		////OpenGL's image ID to map to
+		////GLuint gl_texID;
 
-		//check the file signature and deduce its format
-		image_format = FreeImage_GetFileType(file_name.c_str(), 0);
-		//if still unknown, try to guess the file format from the file extension
-		if(image_format == FIF_UNKNOWN) 
-			image_format = FreeImage_GetFIFFromFilename(file_name.c_str());
-		//if still unkown, return failure
-		if(image_format == FIF_UNKNOWN)
-			throw Exception("Material::LoadTexture() -> Unknown image format!");
+		////check the file signature and deduce its format
+		//image_format = FreeImage_GetFileType(file_name.c_str(), 0);
+		////if still unknown, try to guess the file format from the file extension
+		//if(image_format == FIF_UNKNOWN) 
+		//	image_format = FreeImage_GetFIFFromFilename(file_name.c_str());
+		////if still unkown, return failure
+		//if(image_format == FIF_UNKNOWN)
+		//	throw Exception("Material::LoadTexture() -> Unknown image format!");
 
-		String full_path(Root::GetInstancePtr()->resource_manager()->resource_file_location());
-		full_path += file_name;
-		//check that the plugin has reading capabilities and load the file
-		if(FreeImage_FIFSupportsReading(image_format))
-			dib = FreeImage_Load(image_format, full_path.c_str());
-		else 
-			throw Exception("Material::LoadTexture() -> The image format didn't supported!");
-		//if the image failed to load, return failure
-		if(!dib)
-			throw Exception("Material::LoadTexture() -> FreeImage_Load() failed!");
+		//String full_path(Root::GetInstancePtr()->resource_manager()->resource_file_location());
+		//full_path += file_name;
+		////check that the plugin has reading capabilities and load the file
+		//if(FreeImage_FIFSupportsReading(image_format))
+		//	dib = FreeImage_Load(image_format, full_path.c_str());
+		//else 
+		//	throw Exception("Material::LoadTexture() -> The image format didn't supported!");
+		////if the image failed to load, return failure
+		//if(!dib)
+		//	throw Exception("Material::LoadTexture() -> FreeImage_Load() failed!");
 
-		//retrieve the image data
-		bits = FreeImage_GetBits(dib);
-		//get the image width and height
-		width = FreeImage_GetWidth(dib);
-		height = FreeImage_GetHeight(dib);
-		//if this somehow one of these failed (they shouldn't), return failure
-		if((bits == 0) || (width == 0) || (height == 0))
-			throw Exception("Material::LoadTexture() -> Invalide image data!");
+		////retrieve the image data
+		//bits = FreeImage_GetBits(dib);
+		////get the image width and height
+		//width = FreeImage_GetWidth(dib);
+		//height = FreeImage_GetHeight(dib);
+		////if this somehow one of these failed (they shouldn't), return failure
+		//if((bits == 0) || (width == 0) || (height == 0))
+		//	throw Exception("Material::LoadTexture() -> Invalide image data!");
 	}
 } // epic

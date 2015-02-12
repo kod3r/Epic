@@ -1,5 +1,5 @@
-#ifndef EPIC_INCLUDE_EPICD3D9RENDERSYSTEM_H
-#define EPIC_INCLUDE_EPICD3D9RENDERSYSTEM_H
+#ifndef EPIC_INCLUDE_D3D9_EPICD3D9RENDERSYSTEM_H
+#define EPIC_INCLUDE_D3D9_EPICD3D9RENDERSYSTEM_H
 
 #include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
@@ -7,7 +7,7 @@
 #include <d3d9.h>
 
 namespace epic {
-	class D3D9RenderSystem : public RenderSystem{
+	class EPIC_EXPORT D3D9RenderSystem : public RenderSystem{
 	public:
 		D3D9RenderSystem(RenderWindow* render_window);
 		virtual ~D3D9RenderSystem();
@@ -28,6 +28,6 @@ namespace epic {
 		D3DDEVTYPE device_type_;
 		D3DPRESENT_PARAMETERS d3d_pparam_;
 	};
-} // EPIC_INCLUDE_EPICD3D9RENDERSYSTEM_H
+} // epic
 
-#endif // EPIC_INCLUDE_EPICD3D9RENDERSYSTEM_H
+#endif // EPIC_INCLUDE_D3D9_EPICD3D9RENDERSYSTEM_H

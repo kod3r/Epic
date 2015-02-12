@@ -3,8 +3,8 @@
 #include <Windows.h>
 #include "include/EpicRenderWindow.h"
 #include "include/EpicRenderSystem.h"
-#include "include/EpicGLRenderSystem.h"
-#include "include/EpicD3D9RenderSystem.h"
+#include "include/opengl/EpicGLRenderSystem.h"
+#include "include/d3d9/EpicD3D9RenderSystem.h"
 #include "include/EpicSceneManager.h"
 #include "include/EpicException.h"
 #include "include/EpicMesh.h"
@@ -31,10 +31,10 @@ namespace epic {
 			delete scene_manager_;
 			scene_manager_ = 0;
 		}
-		if (resource_manager_) {
-			delete resource_manager_;
-			resource_manager_ = 0;
-		}
+		/*if (resource_manager_) {
+		delete resource_manager_;
+		resource_manager_ = 0;
+		}*/
 	}
 	Root::Root(RenderSystemType type, const char* title) {
 		// 1. create render window
@@ -46,7 +46,7 @@ namespace epic {
 
 		}else if (type == RENDERSYSTEMTYPE_OPENGL) {
 			render_system_ = new GLRenderSystem(render_window_);
-			resource_manager_ = new ResourceManager(RENDERSYSTEMTYPE_OPENGL);
+			//resource_manager_ = new ResourceManager(RENDERSYSTEMTYPE_OPENGL);
 		}
 		render_system_->InitRender();
 		// 3. init scene manager
@@ -76,18 +76,18 @@ namespace epic {
 		/*if (!mesh || !material) {
 			throw Exception("Root::LoadMeshFromFile() invalid mesh or material!");
 		}*/
-		Assimp::Importer importer;
-		const aiScene* scene = importer.ReadFile(file_name, 
-			aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
-		if (!scene) {
-			//throw(Exception("LoadMeshFromFile() -> ReadFile() failed!"));
-			String error_message("LoadMeshFromFile() -> ReadFile() failed!\n");
-			error_message += importer.GetErrorString();
-			throw Exception(error_message);
+		//Assimp::Importer importer;
+		//const aiScene* scene = importer.ReadFile(file_name, 
+		//	aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_JoinIdenticalVertices);
+		//if (!scene) {
+		//	//throw(Exception("LoadMeshFromFile() -> ReadFile() failed!"));
+		//	String error_message("LoadMeshFromFile() -> ReadFile() failed!\n");
+		//	error_message += importer.GetErrorString();
+		//	throw Exception(error_message);
 
-		}
-		
-		mesh->InitMeshFromFile(scene);
+		//}
+		//
+		//mesh->InitMeshFromFile(scene);
 
 	}
 

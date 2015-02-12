@@ -11,6 +11,18 @@
     <Filter Include="src">
       <UniqueIdentifier>{e171f59e-4401-4883-8c1a-fe7b429cc202}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\D3D9">
+      <UniqueIdentifier>{fb1961f1-00f6-451a-8f15-c771cad684a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\OpenGL">
+      <UniqueIdentifier>{a643fa6d-6534-412c-9457-8ee44b274035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\D3D9">
+      <UniqueIdentifier>{d4dc4f63-7b31-4bcb-9990-79db7f03fdb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\OpenGL">
+      <UniqueIdentifier>{87de6929-84d2-424e-bbce-8775a363caab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\EpicPrerequisites.h">
@@ -37,12 +49,6 @@
     <ClInclude Include="..\..\include\EpicRenderWindow.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\EpicD3D9RenderSystem.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\EpicGLRenderSystem.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\EpicSceneManager.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -52,20 +58,35 @@
     <ClInclude Include="..\..\include\EpicMesh.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\EpicResourceManager.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\EpicObject.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\EpicGLResourceManager.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\EpicD3D9ResourceManager.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\EpicMaterial.h">
       <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EpicBufferManager.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EpicGPUBuffer.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\D3D9\EpicD3D9RenderSystem.h">
+      <Filter>include\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\OpenGL\EpicGLRenderSystem.h">
+      <Filter>include\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\D3D9\EpicD3D9GPUBuffer.h">
+      <Filter>include\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\opengl\EpicGLGPUBuffer.h">
+      <Filter>include\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\d3d9\EpicD3D9BufferManager.h">
+      <Filter>include\D3D9</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\opengl\EpicGLBufferManager.h">
+      <Filter>include\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,32 +108,41 @@
     <ClCompile Include="..\..\src\EpicRenderWindow.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\EpicD3D9RenderSystem.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\EpicGLRenderSystem.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\EpicSceneManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\EpicNode.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\EpicResourceManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\EpicMesh.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\EpicGLResourceManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\EpicD3D9ResourceManager.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\EpicMaterial.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicBufferManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EpicGPUBuffer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\D3D9\EpicD3D9RenderSystem.cpp">
+      <Filter>src\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\OpenGL\EpicGLRenderSystem.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\opengl\EpicGLGPUBuffer.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\opengl\EpicGLBufferManager.cpp">
+      <Filter>src\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\d3d9\EpicD3D9GPUBuffer.cpp">
+      <Filter>src\D3D9</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\d3d9\EpicD3D9BufferManager.cpp">
+      <Filter>src\D3D9</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

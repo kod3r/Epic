@@ -30,6 +30,8 @@ namespace epic {
 		Vector4* color_array_[MAX_NUM_COLOR_SETS];
 		Vector2* texturecoord_2d_array_[MAX_NUM_TEXTURECOORDS];
 		Face* index_array_;
+		// the GPU buffer of the mesh(VAO in OpenGL)
+		VertexData* vertex_data_buffer_;
 	};
 	
 	class EPIC_EXPORT Mesh {
@@ -49,8 +51,8 @@ namespace epic {
 		uint32 num_submesh_;
 		uint32 num_material_;
 		std::vector<SubMesh*> submesh_array_;
-		// the GPU buffer of the mesh
-		std::vector<VertexData*> vertex_data_array_;
+		
+		//std::vector<VertexData*> vertex_data_array_;
 		std::vector<Material*> material_array_;
 	};
 

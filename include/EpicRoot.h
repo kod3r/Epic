@@ -12,7 +12,7 @@
 #include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
 #include "include/EpicSingleton.h"
-#include "include/EpicResourceManager.h"
+//#include "include/EpicResourceManager.h"
 
 namespace epic {
 	// @remark 
@@ -35,7 +35,7 @@ namespace epic {
 		RenderWindow* render_window() const { return render_window_; }
 		RenderSystem* render_system() const { return render_system_; }
 		SceneManager* scene_manager() const { return scene_manager_; }
-		ResourceManager* resource_manager() const { return resource_manager_; }
+		//ResourceManager* resource_manager() const { return resource_manager_; }
 		static Root& GetInstance(void);
 		static Root* GetInstancePtr(void);
 	private:
@@ -43,7 +43,7 @@ namespace epic {
 		RenderWindow* render_window_;
 		RenderSystem* render_system_;
 		SceneManager* scene_manager_;
-		ResourceManager* resource_manager_;
+		//ResourceManager* resource_manager_;
 	}; // Root
 } // epic
 

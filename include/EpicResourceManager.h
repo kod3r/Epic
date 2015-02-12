@@ -12,6 +12,8 @@
 #include "include/EpicPrerequisites.h"
 #include "include/EpicSingleton.h"
 #include "include/EpicRenderSystem.h"
+//#include "include/EpicGLResourceManager.h"
+
 struct aiScene;
 namespace epic
 {
@@ -137,10 +139,15 @@ namespace epic
 		
 		void PushBackInstanceValueWithName(const String& instance_attribute_name, int count, void* data_resource);
 		void PushBackToVisibleArray(int render_priority);
+		uint32 ref_count() const { return ref_count_; }
+		// @the user should call this
+		void AddRef() { ++ref_count_; }
+		void Release() { --ref_count_; }
 	private:
 		RenderSystemType current_render_system_;
 		GLVertexData* gl_vertex_data_ptr_;
 		D3D9VertexData* d3d9_vertex_data_;
+		uint32 ref_count_;
 	};
 
 	// @remark GPU resource manager, for renderer
@@ -171,6 +178,10 @@ namespace epic
 			resource_file_location_ = location;
 		}
 		const char* resource_file_location() const { return resource_file_location_.c_str(); }
+
+		VertexData* CreateVertexData();
+		void AddVertexDataToMap(VertexData*);
+		void DeleteVertexData(VertexData*);
 	private:
 		RenderSystemType current_render_system_;
 		GLResourceManager* gl_resource_manager_;

@@ -49,17 +49,26 @@ namespace epic {
 	typedef glm::mat4 Matrix4;
 	typedef glm::quat Quaternion;
 	// forward declarations
-	class AttributeBuffer;
-	class D3D9AttributeBuffer;
+	//class AttributeBuffer;
+	class BufferManager;
+	//class D3D9AttributeBuffer;
+	class D3D9BufferManager;	
+	class D3D9IndexBuffer;
 	class D3D9RenderSystem;
-	class D3D9ResourceManager;
-	class D3D9VertexData;
+	class D3D9VertexBuffer;
+	//class D3D9ResourceManager;
+	//class D3D9VertexData;
 	class Exception;
-	class GLAttributeBuffer;
-	class GLProgram;
+	//class GLAttributeBuffer;
+	//class GLProgram;
+	class GLBufferManager;
+	class GLIndexBuffer;
 	class GLRenderSystem;
-	class GLResourceManager;
-	class GLVertexData;
+	class GLVertexBuffer;
+	//class GLResourceManager;
+	//class GLVertexData;
+	class GPUBuffer;
+	class IndexBuffer;
 	class InputManager;
 	class Material;
 	class Mesh;
@@ -69,10 +78,11 @@ namespace epic {
 	class Object;
 	class RenderSystem;
 	class RenderWindow;
-	class ResourceManager;
+	//class ResourceManager;
 	class Root;
 	class ShaderProgram;
 	class SceneManager;
+	class VertexBuffer;
 	class VertexData;
 
 

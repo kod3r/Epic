@@ -20,6 +20,8 @@ public:
 	~EpicFramework();
 	// 开始渲染前的初始化
 	virtual void InitSystem();
+	// create objects in the scene
+	virtual void InitScene();
 	void StartRenderLoop();
 
 private:
