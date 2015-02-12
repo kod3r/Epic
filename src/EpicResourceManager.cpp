@@ -33,6 +33,7 @@ namespace epic{
 		}else if (current_render_system_ == RENDERSYSTEMTYPE_D3D9) {
 			d3d9_vertex_data_ = new D3D9VertexData(vertex_struct_size, flag);
 		}
+		ref_count_ = 0;
 	}
 	void VertexData::AddBuffer(const AttributeBuffer* buffer, const int component_stride, const String& attribute_name, bool is_indices) {
 	}
@@ -61,5 +62,23 @@ namespace epic{
 	ResourceManager::~ResourceManager()
 	{
 
+	}
+	VertexData* ResourceManager::CreateVertexData() {
+		VertexData* vertex_data = NULL;
+		if (current_render_system_ == RENDERSYSTEMTYPE_OPENGL) {
+			//vertex_data = new GLVertexData(); // todo
+		}
+		// add into map
+	}
+	void ResourceManager::AddVertexDataToMap(VertexData* vertex_data) {
+		
+		vertex_data->AddRef();
+	}
+	void ResourceManager::DeleteVertexData(VertexData* vertex_data) {
+		// decrease reference count of vertex_data
+		vertex_data->Release();
+		if (vertex_data->ref_count() == 0) {
+			// delete from map
+		}
 	}
 }

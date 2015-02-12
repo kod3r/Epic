@@ -5,8 +5,8 @@
  * @version 1.0
  * @data 2015
  */
-#ifndef EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
-#define EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
+#ifndef EPIC_INCLUDE_OPENGL_EPICGLRENDERSYSTEM_H
+#define EPIC_INCLUDE_OPENGL_EPICGLRENDERSYSTEM_H
 
 #include "include/EpicPrerequisites.h"
 #include "include/EpicRenderSystem.h"
@@ -51,4 +51,4 @@ namespace epic {
 } // epic
 
 
-#endif // EPIC_INCLUDE_EPICGLRENDERSYSTEM_H
+#endif // EPIC_INCLUDE_OPENGL_EPICGLRENDERSYSTEM_H

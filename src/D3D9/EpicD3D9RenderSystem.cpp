@@ -1,4 +1,4 @@
-#include "include/EpicD3D9RenderSystem.h"
+#include "include/d3d9/EpicD3D9RenderSystem.h"
 #include "include/EpicRenderWindow.h"
 #include "include/EpicException.h"
 

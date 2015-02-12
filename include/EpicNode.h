@@ -52,6 +52,14 @@ namespace epic {
 
 	class EPIC_EXPORT Object : public Node
 	{
+	public:		
+		Object(){}
+		~Object(){
+			// when object deleted, the reference count of vertex data in Mesh should decrease
+			//ResourceManager::DeleteVertexData();
+		}
+		// add reference count of vertexdata in Mesh
+		//void BindMesh(Mesh*);
 	private:
 		Mesh* mesh_;
 	};
