@@ -12,14 +12,33 @@ namespace epic {
 	};
 
 	enum VertexElementSemantic{
-		VERTEX_ELEMENT_TYPE_POSITION = 1,
-		VERTEX_ELEMENT_TYPE_NORMAL = 2,
-		VERTEX_ELEMENT_TYPE_BINORMAL = 3,
-		VERTEX_ELEMENT_TYPE_TANGENT = 4,
-		VERTEX_ELEMENT_TYPE_TEXTURE_COORDINATES = 5,
-		VERTEX_ELEMENT_TYPE_BLEND_WEIGHTS = 6,
-		VERTEX_ELEMENT_TYPE_BLEND_INDICES = 7,
+		VERTEX_ELEMENT_SEMANTIC_POSITION = 1,
+		VERTEX_ELEMENT_SEMANTIC_NORMAL = 2,
+		VERTEX_ELEMENT_SEMANTIC_BINORMAL = 3,
+		VERTEX_ELEMENT_SEMANTIC_TANGENT = 4,
+		VERTEX_ELEMENT_SEMANTIC_TEXTURE_COORDINATES = 5,
+		VERTEX_ELEMENT_SEMANTIC_BLEND_WEIGHTS = 6,
+		VERTEX_ELEMENT_SEMANTIC_BLEND_INDICES = 7,
+		VERTEX_ELEMENT_SEMANTIC_COUNT = 7
+	};
+
+	enum VertexElementType{
+		VERTEX_ELEMENT_TYPE_FLOAT = 1,
+		VERTEX_ELEMENT_TYPE_DOUBLE = 2,
+		VERTEX_ELEMENT_TYPE_INT = 3,
+		VERTEX_ELEMENT_TYPE_BYTE = 4,
+		VERTEX_ELEMENT_TYPE_SHORT = 5,
+		VERTEX_ELEMENT_TYPE_UNSIGNED_INT = 6,
+		VERTEX_ELEMENT_TYPE_UNSIGNED_SHORT = 7,
 		VERTEX_ELEMENT_TYPE_COUNT = 7
+	};
+
+	struct  VertexElementStruct
+	{
+		VertexElementStruct(VertexElementSemantic semantic, VertexElementType type, int32 component_count);
+		VertexElementSemantic vertex_element_semantic_;
+		VertexElementType vertex_element_type_;
+		int32 vertex_element_component_count_;
 	};
 
 	enum IndexType {
@@ -47,10 +66,10 @@ namespace epic {
 	public:
 		VertexDeclaration();
 		~VertexDeclaration();
-		void AddElement(const VertexElementSemantic element);
+		void AddElement(const VertexElementStruct element);
 		uint32 GetNumElements() const { return element_group_.size(); }
 	private:
-		std::vector<VertexElementSemantic> element_group_;
+		std::vector<VertexElementStruct> element_group_;
 	};
 
 	class EPIC_EXPORT VertexBuffer : public GPUBuffer {
@@ -59,7 +78,7 @@ namespace epic {
 		VertexBuffer(const uint32 buffer_size, 
 					 const BufferUsage buffer_usage, 
 					 const uint32 num_vertices, 
-					 const std::vector<VertexElementSemantic>& vertex_declaration);
+					 const std::vector<VertexElementStruct>& vertex_declaration);
 		virtual ~VertexBuffer();
 
 	private:
