@@ -17,6 +17,16 @@ namespace epic {
 
 	void GPUBuffer::UnLock() {
 	}
+
+//-------------------------------------------------------------------------
+// VertexElementStruct
+//-------------------------------------------------------------------------
+	VertexElementStruct::VertexElementStruct(VertexElementSemantic semantic, VertexElementType type, int32 component_count)
+	{
+		vertex_element_semantic_ = semantic;
+		vertex_element_type_ = type;
+		vertex_element_component_count_ = component_count;
+	}
 //-------------------------------------------------------------------------
 // VertexDeclaration
 //-------------------------------------------------------------------------
@@ -27,7 +37,7 @@ namespace epic {
 		element_group_.clear();
 	}
 
-	void VertexDeclaration::AddElement(const VertexElementSemantic element) {
+	void VertexDeclaration::AddElement(const VertexElementStruct element) {
 		element_group_.push_back(element);
 	}
 //-------------------------------------------------------------------------
@@ -36,7 +46,7 @@ namespace epic {
 	VertexBuffer::VertexBuffer(const uint32 buffer_size, 
 							   const BufferUsage buffer_usage, 
 							   const uint32 num_vertices, 
-							   const std::vector<VertexElementSemantic>& vertex_declaration) 
+							   const std::vector<VertexElementStruct>& vertex_declaration) 
 	:GPUBuffer(buffer_size, buffer_usage),
 	num_vertices_(num_vertices_)
 	{

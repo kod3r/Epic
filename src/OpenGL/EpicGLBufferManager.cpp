@@ -11,7 +11,7 @@ namespace epic {
 		const uint32 buffer_size, 
 		const BufferUsage buffer_usage, 
 		const uint32 num_vertices, 
-		const std::vector<VertexElementSemantic>& vertex_declaration,
+		const std::vector<VertexElementStruct>& vertex_declaration,
 		const void* buffer_data_) 
 	{
 		GLVertexBuffer* gl_vertex_buffer = NULL;
